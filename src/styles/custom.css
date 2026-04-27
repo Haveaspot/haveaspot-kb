@@ -121,9 +121,14 @@ header.header {
   height: 1.5rem !important;
 }
 
-.social-icons a[href*="contact"]:hover {
+/* Force the contact divider line to remain on hover, overriding mobile sidebar rules */
+.social-icons a[href*="contact"]:hover,
+.sidebar-pane .social-icons a[href*="contact"]:hover,
+mobile-starlight-nav .social-icons a[href*="contact"]:hover,
+.header-right-group a[href*="contact"]:hover {
   color: #0AAD0A !important;
-  border-left: 1px solid var(--sl-color-gray-5) !important; /* Prevents mobile sidebar rules from deleting the line */
+  border-left: 1px solid var(--sl-color-gray-5) !important;
+  background-color: transparent !important;
 }
 
 sidebar-drawer {
