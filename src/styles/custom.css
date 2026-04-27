@@ -951,15 +951,21 @@ body site-search button.pagefind-ui__search-clear:active {
   color: #0AAD0A !important; /* Lighter green on interaction */
 }
 /* =========================================
-   EXPLORE BUTTON - BRANDED HOVER STATE
+   EXPLORE BUTTON - BRANDED HOVER STATE (NUCLEAR)
    ========================================= */
-a.explore-haveaspot-btn:hover,
-a.explore-haveaspot-btn:active,
-a.explore-haveaspot-btn:focus,
-mobile-starlight-nav a.explore-haveaspot-btn:hover,
-mobile-starlight-nav a.explore-haveaspot-btn:active,
-mobile-starlight-nav a.explore-haveaspot-btn:focus {
-  background-color: #0AAD0A !important; /* Haveaspot bright green */
-  color: #ffffff !important; /* Keeps text visible */
-  border-color: #0AAD0A !important; /* Prevents dark borders */
+.header-right-group a.explore-haveaspot-btn {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.header-right-group a.explore-haveaspot-btn:hover,
+.header-right-group a.explore-haveaspot-btn:active,
+.header-right-group a.explore-haveaspot-btn:focus,
+.sidebar-pane .header-right-group a.explore-haveaspot-btn:hover,
+.sidebar-pane .header-right-group a.explore-haveaspot-btn:active,
+.sidebar-pane .header-right-group a.explore-haveaspot-btn:focus {
+  background-color: #0AAD0A !important;
+  color: #ffffff !important;
+  border-color: #0AAD0A !important;
+  opacity: 1 !important;
+  background-image: none !important; /* Kills Starlight's default hover gradients */
 }
