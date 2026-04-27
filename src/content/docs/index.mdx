@@ -1,0 +1,54 @@
+---
+title: "How can we help?"
+description: The ultimate platform for managing and booking spots.
+template: splash
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://kb.haveaspot.com/homepage-custom-preview.jpg
+hero:
+  title: How can we help?
+  tagline: Select your role to find the right guides and resources.
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid>
+  <div class="cta-column">
+    <LinkCard title="I run a Spot" description="Guides and resources for Spot managers." href="/spots/" />
+    <div class="homepage-featured-list">
+      <p class="list-title">Featured Guides For Spots</p>
+      <ul>
+        <li><a href="/spots/registration/">Registering your Spot</a></li>
+        <li><a href="/spots/pricing-guide/">Setting your Rates</a></li>
+        <li><a href="/spots/payouts/">Getting Paid</a></li>
+        <li><a href="/spots/managing-bookings/">Managing your Calendar</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cta-column">
+    <div class="mobile-booking-gap">
+      <LinkCard title="I'm booking a Spot" description="Guides and resources for people booking Spots." href="/bookers/" />
+      <div class="homepage-featured-list">
+        <p class="list-title">Featured Guides For Bookers</p>
+        <ul>
+          <li><a href="/bookers/finding-spots/">Finding the Perfect Spot</a></li>
+          <li><a href="/bookers/booking-process/">How the Booking Process Works</a></li>
+          <li><a href="/bookers/cancellation-policy/">Cancellations and Refunds</a></li>
+          <li><a href="/bookers/payment-methods/">Payment Methods</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</CardGrid>
+
+<div class="support-banner">
+  <h2 class="support-heading">Need more help?</h2>
+  <p class="support-subtext">Can't find what you're looking for? Reach out to our team directly or submit a support ticket, and we'll get back to you as soon as possible.</p>
+  <div class="support-buttons">
+    <a href="https://haveaspot.com/contact/" class="support-btn secondary-btn">Contact Us</a>
+    <a href="mailto:support@haveaspot.com?subject=Support%20Enquiry&body=Name:%0A%0AEmail:%0A%0AUser%20Type%20(Booker%20or%20Spot%20Manager):%0A%0AEnquiry:%0A" class="support-btn primary-btn">Submit a Ticket</a>
+  </div>
+</div>

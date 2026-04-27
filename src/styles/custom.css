@@ -1,0 +1,955 @@
+@import "tailwindcss";
+@import "@fontsource/poppins/300.css";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/700.css";
+
+
+:root,
+:root[data-theme="light"],
+:root[data-theme="dark"] {
+  /* Enforce white background universally */
+  --sl-color-bg: #FFFFFF;
+  --sl-color-bg-nav: #FFFFFF;
+  --sl-color-bg-sidebar: #FFFFFF;
+  --sl-color-bg-inline-code: #F2F2F2;
+
+  /* Typography variables */
+  --sl-font: 'Poppins', sans-serif;
+
+  /* Text Colors */
+  --sl-color-text: #333333;
+  --sl-color-white: #021300;
+  --sl-color-black: #021300;
+  --sl-color-gray-1: #333333;
+  --sl-color-gray-2: #4a4a4a;
+  --sl-color-gray-3: #666666;
+
+  /* Accent Colors */
+  --sl-color-accent: #0FED27;
+  --sl-color-accent-high: #0FED27;
+  --sl-color-accent-low: rgba(15, 237, 39, 0.1);
+  --sl-color-text-accent: #0FED27;
+
+  /* Borders */
+  --sl-color-hairline: #F2F2F2;
+  --sl-color-hairline-shade: #F2F2F2;
+}
+
+/* Enforce font family */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFFFFF;
+  color: #333333;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.sl-markdown-content h4,
+.sl-markdown-content h5,
+.sl-markdown-content h6 {
+  color: #021300 !important;
+  font-weight: 700;
+}
+
+/* Nav & Sidebar Borders */
+header.header {
+  border-bottom: 1px solid #F2F2F2 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+/* Explore Button */
+.explore-link {
+  background-color: #021300 !important;
+  color: #FFFFFF !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 6px 16px !important;
+  text-decoration: none !important;
+  border: 1px solid transparent !important;
+  transition: border-color 0.2s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.9rem !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+.explore-link:hover {
+  border: 1px solid #0FED27 !important;
+}
+
+.social-icons a[href="https://haveaspot.com/"] {
+  margin-right: 1rem !important;
+}
+
+/* Header Divider & Social Icons */
+.social-icons {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+}
+
+/* Hide default Starlight divider lines */
+.social-icons::before,
+.social-icons::after {
+  display: none !important;
+}
+
+/* Email/Contact Icon Styling with Custom Divider */
+.social-icons a[href*="contact"] {
+  color: #021300 !important;
+  transition: color 0.2s ease !important;
+  background: transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  border-left: 1px solid var(--sl-color-gray-5) !important;
+  padding-left: 1rem !important;
+  margin-left: 0 !important;
+}
+
+.social-icons a[href*="contact"] svg {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+}
+
+.social-icons a[href*="contact"]:hover {
+  color: #0AAD0A !important;
+}
+
+sidebar-drawer {
+  border-right: 1px solid #F2F2F2 !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+}
+
+/* Sidebar Active Link Styles */
+a[aria-current="page"] {
+  background-color: #021300 !important;
+  color: #0FED27 !important;
+  font-weight: 400 !important;
+}
+
+/* Table of Contents Styles - ABSOLUTE OVERRIDE */
+starlight-toc a {
+  color: #021300 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  /* Kills Starlight's default active border color */
+  --sl-color-text-accent: #021300 !important;
+}
+
+starlight-toc a:hover {
+  color: #0AAD0A !important;
+}
+
+/* Targets true, focus, active, AND focus-visible */
+starlight-toc a[aria-current="true"],
+starlight-toc a:focus,
+starlight-toc a:focus-visible,
+starlight-toc a:active {
+  color: #021300 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Sidebar and TOC Focus Overrides */
+a[aria-current="page"]:focus,
+a[aria-current="page"]:focus-visible,
+.sidebar-item a:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+
+
+
+
+/* Remove default Starlight shadows or borders on other structural elements */
+.main-frame {
+  border: none !important;
+}
+
+/* Active links and focus states */
+a:focus,
+button:focus,
+input:focus {
+  outline: 2px solid #0AAD0A !important;
+  outline-offset: 2px;
+}
+
+/* Hide theme toggle since we force white background */
+starlight-theme-select {
+  display: none !important;
+}
+
+/* Custom Logo Sizing */
+.site-title img {
+  height: 35px !important;
+  /* Change this number to make it bigger or smaller */
+  width: auto !important;
+}
+
+.site-title:focus,
+.site-title:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+/* Search Bar Styles */
+site-search button {
+  background-color: #FFFFFF !important;
+  border: 1px solid #021300 !important;
+  border-radius: 6px !important;
+  transition: border-color 0.2s ease !important;
+}
+
+site-search button:hover,
+site-search button:focus,
+site-search button:active {
+  border: 1px solid #0AAD0A !important;
+}
+
+site-search button span {
+  color: #021300 !important;
+}
+
+site-search button kbd {
+  border: 1px solid #F2F2F2 !important;
+  background-color: #F2F2F2 !important;
+  color: #021300 !important;
+}
+
+/* Homepage Call-to-Action Cards */
+.sl-link-card {
+  border: 1px solid #021300 !important;
+  background-color: #FFFFFF !important;
+  box-shadow: none !important;
+  transition: border-color 0.2s ease, transform 0.2s ease !important;
+}
+
+.sl-link-card:hover,
+.sl-link-card:focus-within,
+.sl-link-card:active {
+  border: 1px solid #0AAD0A !important;
+  transform: translateY(-2px) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.sl-link-card a:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.sl-link-card .title {
+  color: #021300 !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* Pagination Links (Next/Previous) */
+.pagination-links {
+  --nav-label-size: 0.8rem;
+  --pagination-title-size: 1.2rem;
+  --pagination-title-line-height: 1.0;
+}
+
+.pagination-links a {
+  background-color: #FFFFFF !important;
+  border: 1px solid #021300 !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transition: border-color 0.2s ease, transform 0.2s ease !important;
+}
+
+.pagination-links a:hover,
+.pagination-links a:focus,
+.pagination-links a:active {
+  border: 1px solid #0AAD0A !important;
+  transform: translateY(-2px) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.pagination-links .link-title {
+  color: #021300 !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: var(--pagination-title-size) !important;
+  line-height: var(--pagination-title-line-height) !important;
+}
+
+.pagination-links .link-label {
+  color: #021300 !important;
+  font-weight: 300 !important;
+  font-size: var(--nav-label-size) !important;
+}
+
+.pagination-links svg {
+  color: #021300 !important;
+}
+
+/* ABSOLUTE OVERRIDE: Remove all hollow borders/outlines from Left Sidebar */
+.sidebar-pane a,
+.sidebar-pane summary,
+.sidebar-item a,
+.sidebar-item summary,
+.sidebar-content a,
+.sidebar-content summary {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Ensure hovered non-active links don't get a background/border */
+.sidebar-pane a:hover:not([aria-current="page"]),
+.sidebar-item a:hover:not([aria-current="page"]) {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* FORCE Right Sidebar (TOC) Hover Color on links and inner spans */
+starlight-toc a:hover,
+starlight-toc a:hover *,
+.right-sidebar a:hover,
+.right-sidebar a:hover * {
+  color: #0AAD0A !important;
+  text-decoration: none !important;
+}
+
+/* Global Body Text Color & Font Weight (Non-Headings) */
+.sl-markdown-content p,
+.sl-markdown-content li,
+.sl-markdown-content blockquote,
+.sl-markdown-content td,
+.sl-markdown-content label,
+.sl-markdown-content span:not(h1, h2, h3, h4, h5, h6) {
+  color: #021300 !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 300 !important;
+}
+
+/* Ensure secondary text (like descriptions) also follows suit */
+:root {
+  --sl-color-text-muted: #021300;
+  --sl-color-text: #021300;
+}
+
+/* Featured Articles Grid */
+.featured-heading {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.95rem !important;
+  /* Decreased text size */
+  font-weight: 600 !important;
+  /* Poppins Light */
+  color: #0FED27 !important;
+  /* Neon green text */
+  background-color: #021300 !important;
+  /* Dark background */
+  padding: 0.4rem 1rem !important;
+  /* Internal spacing for the container */
+  border-radius: 8px !important;
+  /* Rounded corners */
+  width: fit-content !important;
+  /* Stops the background from stretching across the whole page */
+  margin-top: 4rem !important;
+  /* Increased spacing from content above */
+  margin-bottom: 1.5rem !important;
+  border-bottom: none !important;
+}
+
+/* Force neon green text on the heading and any injected links */
+.featured-heading,
+.featured-heading * {
+  color: #0FED27 !important;
+  -webkit-text-fill-color: #0FED27 !important;
+  /* Overrides Starlight text gradients */
+  background-image: none !important;
+  /* Removes Starlight text gradients */
+}
+
+.featured-grid .sl-link-card,
+.featured-grid .sl-link-card a {
+  background-color: #F2F2F2 !important;
+  background: #F2F2F2 !important;
+  /* Overrides Starlight's default background gradients */
+  border-radius: 8px !important;
+  border: 1px solid transparent !important;
+  transition: border-color 0.2s ease;
+}
+
+.featured-grid .sl-link-card:hover {
+  border-color: #0AAD0A !important;
+}
+
+.featured-grid .sl-link-card .title {
+  color: #021300 !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+}
+
+/* Hide descriptions to keep it clean and title-only */
+.featured-grid .sl-link-card .description {
+  display: none !important;
+}
+
+.cta-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.cta-column .homepage-featured-list {
+  padding-inline: 1rem !important;
+  /* Aligns the list with the text inside the card */
+  margin-top: 1rem !important;
+  /* Gives breathing room below the card */
+  border-top: none !important;
+  /* Remove the top border since it's no longer inside the card */
+}
+
+/* Homepage Featured Lists inside CTA Cards */
+.homepage-featured-list {
+  margin-top: 1.5rem !important;
+  padding-top: 1.5rem !important;
+  border-top: 1px solid var(--sl-color-gray-5) !important;
+  /* Subtle divider */
+}
+
+.homepage-featured-list .list-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  margin-bottom: 0.75rem !important;
+  color: var(--sl-color-gray-3) !important;
+}
+
+.homepage-featured-list ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+}
+
+.homepage-featured-list ul li a {
+  background: #F2F2F2 none !important;
+  background-color: #F2F2F2 !important;
+  color: #021300 !important;
+  padding: 0.6rem 1rem !important;
+  /* Creates the box shape */
+  border-radius: 8px !important;
+  border: 1px solid transparent !important;
+  display: block !important;
+  text-decoration: none !important;
+  font-size: 0.95rem !important;
+  /* Keeps the font size the same as before */
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.homepage-featured-list ul li a::before {
+  display: none !important;
+}
+
+.homepage-featured-list ul li a:hover {
+  border-color: #0AAD0A !important;
+  /* Lime green border on hover */
+  color: #021300 !important;
+  /* Keeps text dark on hover */
+}
+
+/* Support Banner Container */
+.support-banner {
+  margin-top: 4rem !important;
+  padding: 2.5rem !important;
+  background-color: #F2F2F2 !important;
+  border-radius: 12px !important;
+  text-align: center !important;
+}
+
+.support-banner .support-heading {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #021300 !important;
+  margin-bottom: 0.5rem !important;
+  border: none !important;
+}
+
+.support-banner .support-subtext {
+  color: var(--sl-color-gray-3) !important;
+  font-size: 1rem !important;
+  margin-bottom: 2rem !important;
+  max-width: 600px !important;
+  margin-inline: auto !important;
+}
+
+/* Support Buttons Layout */
+.support-buttons {
+  display: flex !important;
+  gap: 1rem !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+}
+
+/* Base Button Styles */
+.support-btn {
+  display: flex !important;
+  align-items: center !important; /* Forces vertical centering of inner text */
+  justify-content: center !important; /* Keeps it horizontally centered */
+  vertical-align: middle !important;
+  line-height: 1 !important; /* Ensuring consistent line-height is key to perfect centering */
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  padding: 0.75rem 1.5rem !important; /* Adjusted for perfect vertical balance */
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Primary Button (Submit Ticket) */
+.primary-btn {
+  background-color: #021300 !important;
+  color: #FFFFFF !important;
+  border: 1px solid transparent !important;
+}
+
+.primary-btn:hover {
+  border-color: #0AAD0A !important;
+  background-color: #021300 !important;
+}
+
+/* Secondary Button (Contact Us) */
+.secondary-btn {
+  background-color: transparent !important;
+  color: #021300 !important;
+  border: 1px solid #021300 !important;
+}
+
+.secondary-btn:hover {
+  background-color: #021300 !important;
+  color: #FFFFFF !important;
+  border-color: #0AAD0A !important;
+  /* Updated to Lime green */
+}
+
+/* Mobile Header Branding (Applied only on smaller screens) */
+@media (max-width: 50rem) {
+
+  /* 1. Strip ALL backgrounds, borders, focus rings, AND PADDING */
+  site-search button,
+  starlight-menu-button button {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    padding: 0 !important;
+    /* CRITICAL FIX: Destroys the invisible circle boundary */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* 2. Prevent focus/hover boxes */
+  site-search button:hover,
+  site-search button:focus,
+  starlight-menu-button button:hover,
+  starlight-menu-button button:focus {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  /* 3. Scale both icons using font-size and explicit dimensions */
+  site-search button svg,
+  starlight-menu-button button svg {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    font-size: 1.5rem !important;
+    /* Forces Starlight's internal SVG scaling */
+    color: #021300 !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
+  }
+
+  /* 4. Fine-tune the Burger icon to optically match the Search icon */
+  starlight-menu-button button svg {
+    transform: scale(1.3) !important;
+    /* Visually bumps the burger up to match the magnifying glass */
+  }
+
+  /* 5. Apply the custom hover color (#0AAD0A) */
+  site-search button:hover svg,
+  site-search button:focus svg,
+  starlight-menu-button button:hover svg,
+  starlight-menu-button button:focus svg {
+    color: #0AAD0A !important;
+  }
+
+  /* Homepage Mobile Spacing: Physical wrapper gap */
+  .mobile-booking-gap {
+    margin-top: 3rem !important; 
+    display: block !important;
+  }
+
+  /* =========================================
+     MOBILE SEARCH BAR PADDING FIX (CORRECTED)
+     ========================================= */
+  site-search .pagefind-ui__search-clear {
+    padding-left: 0.75rem !important;  /* Restores internal space so the 'x' and 'C' aren't cut off */
+    padding-right: 0.75rem !important; /* Restores internal space so the 'r' isn't cut off */
+    margin-right: 0.5rem !important;   /* Pushes the entire button away from the right edge */
+    width: auto !important;            /* Allows the button to expand to fit the text perfectly */
+    overflow: visible !important;      /* Guarantees no letters are cropped */
+  }
+}
+
+@media (max-width: 72rem) {
+
+  /* 1. Container base styling (Applies to both Mobile & Tablet) */
+  mobile-starlight-toc summary {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-top: 1px solid var(--sl-color-hairline) !important;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+  /* 2. Specific Alignment for Mobile (Aligns with Logo) */
+  @media (max-width: 50rem) {
+    mobile-starlight-toc summary {
+      padding-left: var(--sl-nav-pad-x, 1.5rem) !important;
+      padding-right: var(--sl-nav-pad-x, 1.5rem) !important;
+    }
+  }
+
+  /* 3. Specific Alignment for Tablet (Aligns with outer search bar border) */
+  @media (min-width: 50rem) and (max-width: 72rem) {
+    mobile-starlight-toc summary {
+      padding-left: 1rem !important;
+      /* Reduced from 1.5rem to match the box border instead of the icon */
+      padding-right: 1rem !important;
+    }
+  }
+
+  /* 2. Target the actual clickable pill button (.toggle) */
+  mobile-starlight-toc .toggle {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid #021300 !important;
+    border-radius: 8px !important;
+    color: #021300 !important;
+    padding: 0.4rem 1rem !important;
+    /* Shapes the button */
+    transition: border-color 0.2s ease !important;
+  }
+
+  /* 3. Force the text and icons strictly inside the button to be dark green */
+  mobile-starlight-toc .toggle *,
+  mobile-starlight-toc .toggle h2,
+  mobile-starlight-toc .toggle svg {
+    color: #021300 !important;
+  }
+
+  /* 4. Add the hover effect to the pill button */
+  mobile-starlight-toc summary:hover .toggle,
+  mobile-starlight-toc .toggle:hover {
+    border-color: #0AAD0A !important;
+  }
+}
+
+/* Mobile/Tablet TOC Dropdown Menu Styling (Clean Default Look) */
+@media (max-width: 72rem) {
+
+  /* 1. Force the dropdown wrapper and internal lists to be pure white */
+  mobile-starlight-toc nav,
+  mobile-starlight-toc ul {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    font-family: 'Poppins', sans-serif !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    /* Soft shadow */
+  }
+
+  /* 2. Recreate the default light grey dividing lines between list items */
+  mobile-starlight-toc nav li {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    border-color: #E2E8F0 !important;
+    /* Light grey structural border */
+  }
+
+  /* 3. Force all text, links, and icons to be the brand dark green */
+  mobile-starlight-toc nav a,
+  mobile-starlight-toc nav span,
+  mobile-starlight-toc nav svg {
+    color: #021300 !important;
+  }
+
+  /* 4. Style the active item and its checkmark */
+  mobile-starlight-toc nav a[aria-current="true"] {
+    font-weight: 600 !important;
+  }
+
+  mobile-starlight-toc nav a[aria-current="true"] svg {
+    color: #021300 !important;
+    /* Dark green checkmark */
+  }
+
+  /* 5. Brand hover effect */
+  mobile-starlight-toc nav a:hover {
+    color: #0FED27 !important;
+    /* Neon green text on hover */
+    background-color: #F8F9FA !important;
+    /* Very subtle light background on hover */
+  }
+}
+
+/* Mobile Dropdown Menu Panel Branding */
+@media (max-width: 50rem) {
+
+  /* 1. Force the dropdown background to pure white and use the brand font */
+  mobile-starlight-nav,
+  .sidebar-pane,
+  mobile-starlight-nav nav {
+    background-color: #FFFFFF !important;
+    font-family: 'Poppins', sans-serif !important;
+  }
+
+  /* 2. Color all links, text, and icons in the dropdown dark green */
+  mobile-starlight-nav a,
+  mobile-starlight-nav span,
+  mobile-starlight-nav summary,
+  mobile-starlight-nav svg {
+    color: #021300 !important;
+  }
+
+  /* 3. Style the borders to maintain the clean, separated default look */
+  mobile-starlight-nav a,
+  mobile-starlight-nav summary {
+    border-color: #E2E8F0 !important;
+    /* Light grey dividers */
+  }
+
+  /* 4. Active page indicator (Dark green text, Neon green accent border) */
+  mobile-starlight-nav a[aria-current="page"] {
+    color: #021300 !important;
+    font-weight: 700 !important;
+    background-color: #F2F2F2 !important;
+    /* Subtle highlight for active item */
+    border-inline-start-color: #0FED27 !important;
+    /* Neon green left border */
+  }
+
+  /* 5. Brand hover states for menu items */
+  mobile-starlight-nav a:hover,
+  mobile-starlight-nav summary:hover {
+    color: #0FED27 !important;
+    /* Neon green text on hover */
+    background-color: #F8F9FA !important;
+  }
+}
+
+/* Mobile Search Pop-up Overrides */
+@media (max-width: 50rem) {
+
+  /* 1. Override Starlight's internal variables specifically for the search component */
+  site-search {
+    --sl-color-bg-nav: #F2F2F2 !important;
+    --sl-color-bg: #F2F2F2 !important;
+    --sl-color-text-accent: #021300 !important;
+    /* Strips the neon green off the Cancel button */
+  }
+
+  /* 2. Target the physical modal backgrounds to guarantee the color applies */
+  site-search dialog,
+  site-search .dialog-frame,
+  site-search dialog::backdrop {
+    background-color: #F2F2F2 !important;
+    background: #F2F2F2 !important;
+  }
+
+  /* 3. Brute-force any button inside the search dialog to be dark green */
+  site-search dialog button {
+    color: #021300 !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 500 !important;
+  }
+}
+
+/* =========================================
+   SEARCH MODAL INPUT FIELD BRANDING
+   ========================================= */
+/* 1. Target the actual search input bar */
+site-search dialog input,
+.pagefind-ui__search-input {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  border: 1px solid #021300 !important;
+  /* Brand dark green border */
+  color: #021300 !important;
+  /* Ensures typed text is dark green and readable */
+  border-radius: 8px !important;
+  /* Rounds the corners to match your other buttons */
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* 2. Replace the default focus ring with a brand-consistent hover/focus state */
+site-search dialog input:focus,
+.pagefind-ui__search-input:focus {
+  outline: none !important;
+  /* Removes the thick default ring */
+  border-color: #0AAD0A !important;
+  /* Neon green border when typing */
+}
+
+/* 3. Force any search/clear icons inside the white bar to be dark green so they don't disappear */
+.pagefind-ui__search-clear,
+.pagefind-ui__search-icon {
+  color: #021300 !important;
+  fill: #021300 !important;
+}
+
+/* =========================================
+   SEARCH RESULTS - COMPLETE BRANDING & HOVER
+   ========================================= */
+/* 1. Base Result Card - Pure White, Airy Default */
+.pagefind-ui__result {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 8px !important;
+  padding: 1.5rem !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
+}
+
+/* 2. Fix the Nested Items Default State (The Dark Box Fix) */
+.pagefind-ui__result-nested,
+.pagefind-ui__result-title,
+.pagefind-ui__message {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: #E2E8F0 !important; /* Keeps the nested L-lines light grey */
+}
+
+/* 3. Base Text Colors - Brand Dark Green (#021300) */
+.pagefind-ui__result-title,
+.pagefind-ui__result-link,
+.pagefind-ui__result-excerpt,
+.pagefind-ui__result-excerpt *,
+.pagefind-ui__message,
+.pagefind-ui__result-title svg,
+.pagefind-ui__result-title::before,
+.pagefind-ui__result-nested::before {
+  color: #021300 !important;
+  fill: #021300 !important;
+  font-family: 'Poppins', sans-serif !important;
+  text-decoration: none !important;
+}
+
+/* 4. Highlighted Search Term Default */
+.pagefind-ui__result mark {
+  background-color: transparent !important;
+  color: #021300 !important;
+  font-weight: 800 !important;
+}
+
+/* 5. Clean Hover & Focus States - No Dark Boxes, No Green Borders */
+.pagefind-ui__result:hover,
+.pagefind-ui__result:focus-within,
+.pagefind-ui__result-nested:hover,
+.pagefind-ui__result-nested:focus-within {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important; /* Force keep light grey default border */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important; /* Soft lift */
+  outline: none !important;
+}
+
+/* Aggressively strip internal boxes on hover */
+.pagefind-ui__result:hover *,
+.pagefind-ui__result:focus-within * {
+  background-color: transparent !important; /* Force internal background to transparent */
+  border-color: transparent !important; /* Force internal borders to transparent */
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* 6. Green Text Highlight on Hover (#0AAD0A) */
+.pagefind-ui__result-link:hover,
+.pagefind-ui__result-title.pagefind-ui__result-link:hover {
+  color: #0AAD0A !important; /* Brand lighter green highlight */
+  text-decoration: underline !important;
+}
+
+/* Match the icon color on hover */
+.pagefind-ui__result:hover .pagefind-ui__result-title svg,
+.pagefind-ui__result-title.pagefind-ui__result-link:hover svg {
+  color: #0AAD0A !important;
+  fill: #0AAD0A !important;
+}
+
+/* =========================================
+   SEARCH BAR - CLEAR BUTTON (HIGH SPECIFICITY FIX)
+   ========================================= */
+/* 1. Bulldoze the box styling and set the default dark green */
+body site-search button.pagefind-ui__search-clear {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: #021300 !important; /* Brand dark green */
+  cursor: pointer !important;
+}
+
+/* Force any internal SVGs or mask icons to inherit the color */
+body site-search button.pagefind-ui__search-clear svg,
+body site-search button.pagefind-ui__search-clear::before,
+body site-search button.pagefind-ui__search-clear::after {
+  background-color: currentColor !important;
+  fill: currentColor !important;
+  color: inherit !important;
+}
+
+/* 2. Hover/Focus state: Lighter Green */
+body site-search button.pagefind-ui__search-clear:hover,
+body site-search button.pagefind-ui__search-clear:focus,
+body site-search button.pagefind-ui__search-clear:active {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: #0AAD0A !important; /* Lighter green on interaction */
+}

@@ -1,0 +1,17 @@
+---
+import Default from '@astrojs/starlight/components/SocialIcons.astro';
+---
+
+<div class="header-right-group">
+  <a href="https://haveaspot.com/" class="explore-link">Explore Haveaspot</a>
+  <Default {...Astro.props} />
+</div>
+
+<style>
+  .header-right-group {
+    display: flex;
+    align-items: center;
+    /* Remove gap here to manage it precisely with divider margins in CSS */
+    gap: 0;
+  }
+</style>
