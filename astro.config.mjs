@@ -9,7 +9,8 @@ export default defineConfig({
     site: 'https://kb.haveaspot.com',
     integrations: [
         starlight({
-            title: 'Have A Spot',
+            title: 'Haveaspot Knowledge Base',
+            favicon: '/favicon.svg',
             logo: {
                 src: './src/assets/logo.webp',
                 replacesTitle: true,
@@ -41,7 +42,7 @@ export default defineConfig({
                     tag: 'meta',
                     attrs: {
                         property: 'og:image',
-                        content: 'https://kb.haveaspot.com/default-social-preview.jpg',
+                        content: 'https://kb.haveaspot.com/default-social-preview.png',
                     },
                 },
                 {
