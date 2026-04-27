@@ -959,3 +959,19 @@ body site-search button.pagefind-ui__search-clear:active {
   outline: none !important;
   color: #0AAD0A !important; /* Lighter green on interaction */
 }
+/* =========================================
+   MOBILE TAP FIX FOR EXPLORE BUTTON
+   ========================================= */
+.explore-haveaspot-btn {
+  -webkit-tap-highlight-color: transparent !important; /* Kills the native white/grey flash */
+}
+
+.explore-haveaspot-btn:hover,
+.explore-haveaspot-btn:active,
+.explore-haveaspot-btn:focus {
+  background-color: #053F2C !important; /* Haveaspot dark green/black */
+  color: #ffffff !important;
+  opacity: 1 !important;
+  transform: scale(0.96); /* Gives a modern physical "press" effect instead of changing colors */
+  transition: transform 0.1s ease-in-out;
+}
