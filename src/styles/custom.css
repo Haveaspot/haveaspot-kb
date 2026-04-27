@@ -86,8 +86,14 @@ header.header {
   white-space: nowrap !important;
 }
 
-.explore-link:hover {
-  border: 1px solid #0FED27 !important;
+.explore-link:hover,
+.explore-link:focus,
+.explore-link:active {
+  background-color: #021300 !important; /* Brand dark green/black */
+  color: #FFFFFF !important;
+  border: 1px solid #0FED27 !important; /* Maintain the neon highlight */
+  opacity: 1 !important;
+  text-decoration: none !important;
 }
 
 .social-icons a[href="https://haveaspot.com/"] {
