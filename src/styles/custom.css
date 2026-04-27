@@ -953,10 +953,13 @@ body site-search button.pagefind-ui__search-clear:active {
 /* =========================================
    EXPLORE BUTTON - BRANDED HOVER STATE
    ========================================= */
-.explore-link:hover,
-.explore-link:active,
-.explore-link:focus {
+a.explore-haveaspot-btn:hover,
+a.explore-haveaspot-btn:active,
+a.explore-haveaspot-btn:focus,
+mobile-starlight-nav a.explore-haveaspot-btn:hover,
+mobile-starlight-nav a.explore-haveaspot-btn:active,
+mobile-starlight-nav a.explore-haveaspot-btn:focus {
   background-color: #0AAD0A !important; /* Haveaspot bright green */
   color: #ffffff !important; /* Keeps text visible */
-  border-color: #0AAD0A !important; /* Prevents dark borders from remaining */
+  border-color: #0AAD0A !important; /* Prevents dark borders */
 }
