@@ -123,6 +123,7 @@ header.header {
 
 .social-icons a[href*="contact"]:hover {
   color: #0AAD0A !important;
+  border-left: 1px solid var(--sl-color-gray-5) !important; /* Prevents mobile sidebar rules from deleting the line */
 }
 
 sidebar-drawer {
