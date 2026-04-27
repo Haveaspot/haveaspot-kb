@@ -953,9 +953,9 @@ body site-search button.pagefind-ui__search-clear:active {
 /* =========================================
    EXPLORE BUTTON - BRANDED HOVER STATE
    ========================================= */
-.explore-haveaspot-btn:hover,
-.explore-haveaspot-btn:active,
-.explore-haveaspot-btn:focus {
+.explore-link:hover,
+.explore-link:active,
+.explore-link:focus {
   background-color: #0AAD0A !important; /* Haveaspot bright green */
   color: #ffffff !important; /* Keeps text visible */
   border-color: #0AAD0A !important; /* Prevents dark borders from remaining */
