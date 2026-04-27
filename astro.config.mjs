@@ -6,10 +6,10 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://kb.haveaspot.com',
+    site: 'https://support.haveaspot.com',
     integrations: [
         starlight({
-            title: 'Haveaspot Knowledge Base',
+            title: 'Haveaspot',
             favicon: '/favicon.svg',
             logo: {
                 src: './src/assets/logo.webp',
@@ -42,7 +42,7 @@ export default defineConfig({
                     tag: 'meta',
                     attrs: {
                         property: 'og:image',
-                        content: 'https://kb.haveaspot.com/default-social-preview.png',
+                        content: 'https://support.haveaspot.com/default-social-preview.png',
                     },
                 },
                 {
