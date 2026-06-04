@@ -131,6 +131,14 @@ mobile-starlight-nav .social-icons a[href*="contact"]:hover,
   background-color: transparent !important;
 }
 
+/* Remove global focus outline from header icons */
+.social-icons a:focus,
+.social-icons a:focus-visible,
+.social-icons a:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 sidebar-drawer {
   border-right: 1px solid #FAFAFA !important;
   border-top: none !important;
