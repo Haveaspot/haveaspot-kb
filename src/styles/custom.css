@@ -552,9 +552,12 @@ starlight-toc a:hover *,
   border: 1px solid transparent !important;
 }
 
-.primary-btn:hover {
+.primary-btn:hover,
+.primary-btn:focus,
+.primary-btn:active {
+  background-color: #0AAD0A !important;
+  color: #FFFFFF !important;
   border-color: #0AAD0A !important;
-  background-color: #021300 !important;
 }
 
 /* Secondary Button (Contact Us) */
