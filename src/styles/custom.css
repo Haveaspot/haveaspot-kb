@@ -11,7 +11,7 @@
   --sl-color-bg: #FFFFFF;
   --sl-color-bg-nav: #FFFFFF;
   --sl-color-bg-sidebar: #FFFFFF;
-  --sl-color-bg-inline-code: #F2F2F2;
+  --sl-color-bg-inline-code: #FAFAFA;
 
   /* Typography variables */
   --sl-font: 'Poppins', sans-serif;
@@ -31,8 +31,8 @@
   --sl-color-text-accent: #0FED27;
 
   /* Borders */
-  --sl-color-hairline: #F2F2F2;
-  --sl-color-hairline-shade: #F2F2F2;
+  --sl-color-hairline: #FAFAFA;
+  --sl-color-hairline-shade: #FAFAFA;
 }
 
 /* Enforce font family */
@@ -61,7 +61,7 @@ h6,
 
 /* Nav & Sidebar Borders */
 header.header {
-  border-bottom: 1px solid #F2F2F2 !important;
+  border-bottom: 1px solid #FAFAFA !important;
   border-top: none !important;
   border-left: none !important;
   border-right: none !important;
@@ -132,7 +132,7 @@ mobile-starlight-nav .social-icons a[href*="contact"]:hover,
 }
 
 sidebar-drawer {
-  border-right: 1px solid #F2F2F2 !important;
+  border-right: 1px solid #FAFAFA !important;
   border-top: none !important;
   border-bottom: none !important;
   border-left: none !important;
@@ -235,8 +235,8 @@ site-search button span {
 }
 
 site-search button kbd {
-  border: 1px solid #F2F2F2 !important;
-  background-color: #F2F2F2 !important;
+  border: 1px solid #FAFAFA !important;
+  background-color: #FAFAFA !important;
   color: #021300 !important;
 }
 
@@ -394,8 +394,8 @@ starlight-toc a:hover *,
 
 .featured-grid .sl-link-card,
 .featured-grid .sl-link-card a {
-  background-color: #F2F2F2 !important;
-  background: #F2F2F2 !important;
+  background-color: #FAFAFA !important;
+  background: #FAFAFA !important;
   /* Overrides Starlight's default background gradients */
   border-radius: 8px !important;
   border: 1px solid transparent !important;
@@ -460,8 +460,8 @@ starlight-toc a:hover *,
 }
 
 .homepage-featured-list ul li a {
-  background: #F2F2F2 none !important;
-  background-color: #F2F2F2 !important;
+  background: #FAFAFA none !important;
+  background-color: #FAFAFA !important;
   color: #021300 !important;
   padding: 0.6rem 1rem !important;
   /* Creates the box shape */
@@ -491,7 +491,7 @@ starlight-toc a:hover *,
 .support-banner {
   margin-top: 4rem !important;
   padding: 2.5rem !important;
-  background-color: #F2F2F2 !important;
+  background-color: #FAFAFA !important;
   border-radius: 12px !important;
   text-align: center !important;
 }
@@ -768,7 +768,7 @@ starlight-toc a:hover *,
   mobile-starlight-nav a[aria-current="page"] {
     color: #021300 !important;
     font-weight: 700 !important;
-    background-color: #F2F2F2 !important;
+    background-color: #FAFAFA !important;
     /* Subtle highlight for active item */
     border-inline-start-color: #0FED27 !important;
     /* Neon green left border */
@@ -788,8 +788,8 @@ starlight-toc a:hover *,
 
   /* 1. Override Starlight's internal variables specifically for the search component */
   site-search {
-    --sl-color-bg-nav: #F2F2F2 !important;
-    --sl-color-bg: #F2F2F2 !important;
+    --sl-color-bg-nav: #FAFAFA !important;
+    --sl-color-bg: #FAFAFA !important;
     --sl-color-text-accent: #021300 !important;
     /* Strips the neon green off the Cancel button */
   }
@@ -798,8 +798,8 @@ starlight-toc a:hover *,
   site-search dialog,
   site-search .dialog-frame,
   site-search dialog::backdrop {
-    background-color: #F2F2F2 !important;
-    background: #F2F2F2 !important;
+    background-color: #FAFAFA !important;
+    background: #FAFAFA !important;
   }
 
   /* 3. Brute-force any button inside the search dialog to be dark green */
