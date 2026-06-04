@@ -567,11 +567,12 @@ starlight-toc a:hover *,
   border: 1px solid #021300 !important;
 }
 
-.secondary-btn:hover {
-  background-color: #021300 !important;
+.secondary-btn:hover,
+.secondary-btn:focus,
+.secondary-btn:active {
+  background-color: #0AAD0A !important;
   color: #FFFFFF !important;
   border-color: #0AAD0A !important;
-  /* Updated to Lime green */
 }
 
 /* Mobile Header Branding (Applied only on smaller screens) */
