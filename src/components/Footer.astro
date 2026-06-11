@@ -1,0 +1,395 @@
+---
+import logo from "../assets/logo.webp";
+
+const today = new Date();
+
+// ==========================================
+// EASY EDIT VARIABLES
+// Update your footer links, social URLs, and VAT here!
+// ==========================================
+const links = {
+	// Quick Links
+	home: "https://haveaspot.com/",
+	venues: "https://haveaspot.com/venues",
+	hosts: "https://haveaspot.com/hosts",
+	about: "/about",
+	blog: "/blog",
+	support: "https://support.haveaspot.com",
+	contact: "/contact",
+	login: "https://haveaspot.com/login",
+
+	// Contact & Socials
+	email: "mailto:hello@haveaspot.com",
+	facebook: "https://www.facebook.com/haveaspot",
+	linkedin: "https://www.linkedin.com/company/haveaspot",
+
+	// Legal Links
+	termsOfUse: "/website-terms-of-use",
+	privacyPolicy: "/platform-privacy-policy",
+	venueAgreement: "/venue-service-agreement",
+	bookerAgreement: "/booker-service-agreement",
+
+	// Corporate Info
+	vatNumber: "GB 123 4567 89",
+};
+---
+
+<footer class="has-footer">
+	<div class="has-footer-inner">
+		<div class="footer-col brand-col">
+			<a href="/" class="footer-logo">
+				<img
+					src={logo.src}
+					alt="Haveaspot Logo"
+					class="footer-logo-img"
+				/>
+			</a>
+			<p class="brand-desc">
+				We're a booking platform with a mission to support community
+				spaces (spots). Book a spot, support a&nbsp;spot.
+			</p>
+
+			<div class="footer-socials">
+				<a
+					href={links.facebook}
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="Follow Haveaspot on Facebook"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 640 640"
+						fill="currentColor"
+					>
+						<path
+							d="M576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 440 146.7 540.8 258.2 568.5L258.2 398.2L205.4 398.2L205.4 320L258.2 320L258.2 286.3C258.2 199.2 297.6 158.8 383.2 158.8C399.4 158.8 427.4 162 438.9 165.2L438.9 236C432.9 235.4 422.4 235 409.3 235C367.3 235 351.1 250.9 351.1 292.2L351.1 320L434.7 320L420.3 398.2L351 398.2L351 574.1C477.8 558.8 576 450.9 576 320z"
+						></path>
+					</svg>
+				</a>
+
+				<a
+					href={links.linkedin}
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="Connect with Haveaspot on LinkedIn"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 640 640"
+						fill="currentColor"
+					>
+						<path
+							d="M512 96L127.9 96C110.3 96 96 110.5 96 128.3L96 511.7C96 529.5 110.3 544 127.9 544L512 544C529.6 544 544 529.5 544 511.7L544 128.3C544 110.5 529.6 96 512 96zM231.4 480L165 480L165 266.2L231.5 266.2L231.5 480L231.4 480zM198.2 160C219.5 160 236.7 177.2 236.7 198.5C236.7 219.8 219.5 237 198.2 237C176.9 237 159.7 219.8 159.7 198.5C159.7 177.2 176.9 160 198.2 160zM480.3 480L413.9 480L413.9 376C413.9 351.2 413.4 319.3 379.4 319.3C344.8 319.3 339.5 346.3 339.5 374.2L339.5 480L273.1 480L273.1 266.2L336.8 266.2L336.8 295.4L337.7 295.4C346.6 278.6 368.3 260.9 400.6 260.9C467.8 260.9 480.3 305.2 480.3 362.8L480.3 480z"
+						></path>
+					</svg>
+				</a>
+			</div>
+		</div>
+
+		<div class="footer-right-group">
+			<div class="footer-col links-col">
+				<h3 class="footer-heading">Quick Links</h3>
+				<nav>
+					<a href={links.home}>Home</a>
+					<a href={links.hosts}>Hosts</a>
+
+					<a href={links.about}>About</a>
+					<a href={links.venues}>Venues</a>
+
+					<a href={links.contact}>Contact</a>
+					<a href={links.support}>Support</a>
+
+					<a href={links.blog}>Blog</a>
+					<a href={links.login}>Login</a>
+				</nav>
+			</div>
+
+			<div class="footer-col contact-col">
+				<h3 class="footer-heading">Contact Info</h3>
+				<p class="contact-text">The Cleve, Wellington, TA21 8SN</p>
+				<a href={links.email} class="contact-email"
+					>hello@haveaspot.com</a
+				>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-bottom">
+		<div class="footer-legal-links">
+			<a href={links.termsOfUse}>Website Terms of Use</a>
+			<span class="legal-separator">|</span>
+			<a href={links.privacyPolicy}>Platform Privacy Policy</a>
+			<span class="legal-separator">|</span>
+			<a href={links.venueAgreement}>Venue Service Agreement</a>
+			<span class="legal-separator">|</span>
+			<a href={links.bookerAgreement}>Booker Service Agreement</a>
+		</div>
+
+		<div class="footer-bottom-content">
+			<div class="copyright-text">
+				&copy; {today.getFullYear()} Haveaspot Ltd. All Rights Reserved.
+			</div>
+			<div class="corporate-info">
+				Haveaspot Ltd is registered in England and Wales (Company No.
+				15535913). Registered Office: The Cleve, Mantle Street,
+				Wellington, Somerset, TA21 8SN. VAT Registration No. {
+					links.vatNumber
+				}.
+			</div>
+		</div>
+	</div>
+</footer>
+
+<style is:global>
+	/* NEW: Forces the page into a flex column, allowing the main tag to expand */
+	body {
+		display: flex !important;
+		flex-direction: column !important;
+		min-height: 100vh !important;
+		margin: 0 !important;
+	}
+
+	/* NEW: Forces the content area to grow and take up all empty vertical space */
+	main {
+		flex: 1 0 auto !important;
+	}
+
+	/* Base Footer Outer Frame */
+	.has-footer {
+		width: 100% !important;
+		background-color: #ffffff !important;
+		border-top: 1px solid #e5e7eb !important;
+		font-family: "Poppins", system-ui, sans-serif !important;
+		color: #021300 !important;
+		padding-top: 4rem !important;
+		margin-top: 4rem !important;
+		display: block !important;
+		/* NEW: Prevents the footer from squishing if the page gets crowded */
+		flex-shrink: 0 !important;
+	}
+
+	/* Core Content Alignment Flex Container */
+	.has-footer-inner {
+		display: flex !important;
+		flex-direction: row !important;
+		justify-content: space-between !important;
+		align-items: flex-start !important;
+		width: 100% !important;
+		max-width: 1536px !important;
+		margin: 0 auto !important;
+		padding: 0 1rem 3rem 1rem !important;
+		box-sizing: border-box !important;
+	}
+
+	/* RIGHT COLUMN CONTAINER: Enforces true side-by-side alignment */
+	.footer-right-group {
+		display: flex !important;
+		flex-direction: row !important;
+		flex-wrap: nowrap !important;
+		justify-content: flex-end !important;
+		align-items: flex-start !important;
+		gap: 6rem !important;
+	}
+
+	/* Generic column setup */
+	.footer-col {
+		display: flex !important;
+		flex-direction: column !important;
+	}
+
+	.brand-col {
+		max-width: 460px !important;
+	}
+
+	/* Logo Image Style */
+	.footer-logo-img {
+		height: 35px !important;
+		width: auto !important;
+		max-width: 100% !important;
+		margin-bottom: 1.5rem !important;
+		display: block !important;
+		border-radius: 0 !important;
+	}
+
+	.brand-desc {
+		font-size: 0.95rem !important;
+		line-height: 1.6 !important;
+		margin-bottom: 1.5rem !important;
+		color: #021300 !important;
+	}
+
+	/* Social Icons Layout Styling */
+	.footer-socials {
+		display: flex !important;
+		flex-direction: row !important;
+		align-items: center !important;
+		gap: 1.25rem !important;
+	}
+
+	.footer-socials a {
+		color: #021300 !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		text-decoration: none !important;
+		transition:
+			color 0.2s ease,
+			transform 0.2s ease !important;
+	}
+
+	.footer-socials a:hover {
+		color: var(--accent) !important;
+		transform: translateY(-2px) !important;
+	}
+
+	.footer-socials svg {
+		width: 40px !important;
+		height: 40px !important;
+		display: block !important;
+	}
+
+	/* Typography & Layout Element Styling */
+	.footer-heading {
+		font-size: 1.1rem !important;
+		font-weight: 600 !important;
+		margin-bottom: 1.5rem !important;
+		color: #021300 !important;
+	}
+
+	.footer-col nav {
+		display: grid !important;
+		grid-template-columns: repeat(2, 1fr) !important;
+		column-gap: 3rem !important;
+		row-gap: 0.85rem !important;
+	}
+
+	.footer-col nav a,
+	.contact-col p,
+	.contact-col a {
+		font-size: 0.95rem !important;
+		color: #021300 !important;
+		text-decoration: none !important;
+		transition: color 0.2s ease !important;
+		margin: 0 !important;
+		white-space: nowrap !important;
+	}
+
+	.contact-col p {
+		margin-bottom: 0.5rem !important;
+	}
+
+	/* Bottom Copyright + Legal Master Layout Container */
+	.footer-bottom {
+		border-top: 1px solid #e5e7eb !important;
+		width: 100% !important;
+		max-width: 1536px !important;
+		margin: 0 auto !important;
+		padding: 2rem 1rem !important;
+		box-sizing: border-box !important;
+		font-size: 0.85rem !important;
+		color: #021300 !important;
+		display: flex !important;
+		flex-direction: column !important;
+		justify-content: flex-start !important;
+		align-items: flex-start !important;
+		gap: 1.5rem !important;
+	}
+
+	/* Positioned menu links at the top of the stack and left-aligned */
+	.footer-legal-links {
+		display: flex !important;
+		flex-direction: row !important;
+		align-items: center !important;
+		justify-content: flex-start !important;
+		gap: 0.75rem !important;
+		width: 100% !important;
+		flex-wrap: wrap !important;
+	}
+
+	.footer-legal-links a {
+		color: #021300 !important;
+		text-decoration: none !important;
+		transition: color 0.2s ease !important;
+		font-weight: 500 !important;
+	}
+
+	.footer-legal-links a:hover {
+		color: var(--accent) !important;
+	}
+
+	.legal-separator {
+		color: #021300 !important;
+		user-select: none !important;
+	}
+
+	/* Stacks copyright and corporate statement across full width bounds */
+	.footer-bottom-content {
+		display: flex !important;
+		flex-direction: column !important;
+		gap: 0.5rem !important;
+		width: 100% !important;
+	}
+
+	.copyright-text {
+		font-weight: 600 !important;
+	}
+
+	.corporate-info {
+		font-size: 0.75rem !important;
+		color: #6b7280 !important;
+		line-height: 1.4 !important;
+		width: 100% !important;
+	}
+
+	/* Standard Interactive Hovers */
+	.footer-col nav a:hover,
+	.contact-col a:hover {
+		color: var(--accent) !important;
+	}
+
+	/* Mobile Responsive Adjustments */
+	@media (max-width: 768px) {
+		.has-footer {
+			padding-top: 3rem !important;
+		}
+
+		.has-footer-inner {
+			flex-direction: column !important;
+			gap: 2.5rem !important;
+			padding: 0 1rem 2rem 1rem !important;
+		}
+
+		.footer-right-group {
+			flex-direction: column !important;
+			gap: 2.5rem !important;
+			align-items: flex-start !important;
+			width: 100% !important;
+		}
+
+		.brand-col {
+			max-width: 100% !important;
+		}
+
+		.footer-bottom {
+			padding: 1.5rem 1rem !important;
+			gap: 1.25rem !important;
+		}
+
+		.footer-legal-links {
+			flex-direction: column !important;
+			align-items: flex-start !important;
+			gap: 0.85rem !important;
+			width: 100% !important;
+		}
+
+		.legal-separator {
+			display: none !important;
+		}
+
+		.footer-col nav a,
+		.contact-col p,
+		.contact-col a {
+			white-space: normal !important;
+		}
+	}
+</style>
