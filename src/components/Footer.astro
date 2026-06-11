@@ -141,22 +141,35 @@ const links = {
 </footer>
 
 <style is:global>
-	/* NEW: Forces the page into a flex column, allowing the main tag to expand */
+	/* Forces body into flex column so footer sticks to bottom */
 	body {
 		display: flex !important;
 		flex-direction: column !important;
 		min-height: 100vh !important;
 		margin: 0 !important;
+		overflow-x: hidden !important;
 	}
 
-	/* NEW: Forces the content area to grow and take up all empty vertical space */
+	/* Starlight's main-frame is the only in-flow flex child — make it grow */
+	.main-frame {
+		flex: 1 0 auto !important;
+	}
+
 	main {
 		flex: 1 0 auto !important;
 	}
 
-	/* Base Footer Outer Frame */
+	/* Base Footer Outer Frame
+	   Uses the full-bleed breakout technique to escape Starlight's content
+	   column (.sl-container → .content-panel → .main-frame) and span the
+	   full viewport width, matching the navbar.
+	   Formula: left = -50vw + 50% corrects for .sl-container auto-centering;
+	   the extra - (--sl-content-inline-start / 2) corrects for the sidebar
+	   offset so the breakout is accurate on both sidebar and no-sidebar pages. */
 	.has-footer {
-		width: 100% !important;
+		position: relative !important;
+		left: calc(-50vw + 50% - var(--sl-content-inline-start, 0rem) / 2) !important;
+		width: 100vw !important;
 		background-color: #ffffff !important;
 		border-top: 1px solid #e5e7eb !important;
 		font-family: "Poppins", system-ui, sans-serif !important;
@@ -164,7 +177,6 @@ const links = {
 		padding-top: 4rem !important;
 		margin-top: 4rem !important;
 		display: block !important;
-		/* NEW: Prevents the footer from squishing if the page gets crowded */
 		flex-shrink: 0 !important;
 	}
 
