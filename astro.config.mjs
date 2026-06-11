@@ -55,6 +55,7 @@ export default defineConfig({
             ],
             customCss: ['./src/styles/custom.css'],
             components: {
+                Header: './src/components/Header.astro',
                 SocialIcons: './src/components/HeaderButton.astro',
                 Footer: './src/components/Footer.astro',
                 PageFrame: './src/components/PageFrame.astro',

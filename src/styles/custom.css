@@ -59,9 +59,8 @@ h6,
   font-weight: 700;
 }
 
-/* Nav & Sidebar Borders */
+/* Nav & Sidebar Borders — border-bottom colour is set in Header.astro */
 header.header {
-  border-bottom: 1px solid #FAFAFA !important;
   border-top: none !important;
   border-left: none !important;
   border-right: none !important;
@@ -205,10 +204,7 @@ input:focus {
   outline-offset: 2px;
 }
 
-/* Hide theme toggle since we force white background */
-starlight-theme-select {
-  display: none !important;
-}
+/* Theme toggle visibility is managed in Header.astro */
 
 /* Custom Logo Sizing */
 .site-title img {
