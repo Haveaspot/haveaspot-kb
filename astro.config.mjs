@@ -57,6 +57,7 @@ export default defineConfig({
             components: {
                 SocialIcons: './src/components/HeaderButton.astro',
                 Footer: './src/components/Footer.astro',
+                PageFrame: './src/components/PageFrame.astro',
             },
             social: [
                 {
