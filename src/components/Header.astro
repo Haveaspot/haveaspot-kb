@@ -1,10 +1,14 @@
 ---
 /**
- * Custom header that composes Starlight's sub-components unchanged so all
- * built-in functionality (search, sidebar toggle, theme select, keyboard
- * navigation, a11y) is fully preserved. Only the visual layer is added here
- * to match the Haveaspot blog header: white background, #e5e7eb border,
- * Poppins font, 64px height, logo | search | [spacer] | right-group layout.
+ * KB Header — blog visual structure with Starlight sub-components.
+ *
+ * Desktop: [Logo] [Search grows] [SocialIcons · ThemeSelect]
+ * Mobile:  [hamburger LEFT (fixed, via CSS)] [Logo CENTER] [Search icon RIGHT]
+ *
+ * MobileMenuToggle is NOT rendered here — it lives in PageFrame's sidebar nav
+ * so the CSS sibling rule ([aria-expanded='true'] ~ .sidebar-pane) that opens
+ * the sidebar keeps working. On mobile we just move its fixed button to the
+ * left with a CSS override so it matches the blog's layout.
  */
 import config from 'virtual:starlight/user-config';
 import LanguageSelect from 'virtual:starlight/components/LanguageSelect';
@@ -18,14 +22,14 @@ const shouldRenderSearch =
 	config.components.Search !== '@astrojs/starlight/components/Search.astro';
 ---
 
-<div class="header">
-	<div class="title-wrapper sl-flex">
+<div class="has-header-inner">
+	<div class="kb-title">
 		<SiteTitle />
 	</div>
-	<div class="sl-flex print:hidden">
+	<div class="kb-search sl-flex print:hidden">
 		{shouldRenderSearch && <Search />}
 	</div>
-	<div class="sl-hidden md:sl-flex print:hidden right-group">
+	<div class="sl-hidden md:sl-flex print:hidden kb-right-group">
 		<div class="sl-flex social-icons">
 			<SocialIcons />
 		</div>
@@ -35,98 +39,141 @@ const shouldRenderSearch =
 </div>
 
 <style is:global>
-	/* ── Blog-matching visual overrides ─────────────────────────────────────
-	   The outer <header class="header"> lives in PageFrame. We target it with
-	   a body-prefixed selector so specificity beats the #FAFAFA rule that was
-	   previously in custom.css, without touching PageFrame.astro itself.     */
-
+	/* ═══════════════════════════════════════════════════════════
+	   OUTER WRAPPER  (the <header class="header"> in PageFrame)
+	   ═══════════════════════════════════════════════════════════ */
 	body header.header {
-		border-bottom: 1px solid #e5e7eb !important;
 		background-color: #ffffff !important;
+		border-bottom: 1px solid #e5e7eb !important;
 		font-family: 'Poppins', system-ui, sans-serif !important;
 	}
 
-	/* Show theme select — custom.css previously hid it; re-enable here so the
-	   layout is [ Logo | Search | spacer | ThemeSelect ] as specified.        */
+	/* ═══════════════════════════════════════════════════════════
+	   INNER CONTAINER  — mirrors the blog's .has-header-inner
+	   ═══════════════════════════════════════════════════════════ */
+	.has-header-inner {
+		display: flex !important;
+		flex-direction: row !important;
+		align-items: center !important;
+		justify-content: space-between !important;
+		max-width: 1536px !important;
+		margin: 0 auto !important;
+		padding: 0 1rem !important;
+		height: 100% !important;
+		gap: 1rem !important;
+		box-sizing: border-box !important;
+	}
+
+	/* Search bar grows to fill the middle column */
+	.kb-search {
+		flex: 1 !important;
+		min-width: 0 !important;
+	}
+
+	/* Right group: Explore button + contact icon + theme toggle */
+	.kb-right-group {
+		display: flex !important;
+		align-items: center !important;
+		gap: 1rem !important;
+		flex-shrink: 0 !important;
+	}
+
+	/* Logo — matches blog's 34 px */
+	.kb-title .site-title img {
+		height: 34px !important;
+		width: auto !important;
+	}
+
+	/* Re-enable theme select (previously hidden in custom.css) */
 	starlight-theme-select {
 		display: flex !important;
 	}
 
-	/* Keep logo height consistent with blog (34 px) */
-	.site-title img {
-		height: 34px !important;
-		width: auto !important;
+	/* ═══════════════════════════════════════════════════════════
+	   MOBILE  (<50rem)
+	   Blog layout: [hamburger LEFT] [logo CENTER] [search RIGHT]
+
+	   Starlight's MobileMenuToggle button is position:fixed at
+	   top-right. We move it to the left to match the blog, and
+	   center the logo absolutely within the header bar.
+	   ═══════════════════════════════════════════════════════════ */
+	@media (max-width: 49.999rem) {
+		.has-header-inner {
+			position: relative !important;
+			gap: 0 !important;
+		}
+
+		/* Logo centered */
+		.kb-title {
+			position: absolute !important;
+			left: 50% !important;
+			top: 50% !important;
+			transform: translate(-50%, -50%) !important;
+			pointer-events: auto !important;
+		}
+
+		/* Search icon pushed to the right */
+		.kb-search {
+			flex: 0 !important;
+			margin-left: auto !important;
+		}
+
+		/* Move Starlight's fixed hamburger from top-RIGHT → top-LEFT */
+		starlight-menu-button button {
+			inset-inline-end: unset !important;
+			inset-inline-start: var(--sl-nav-pad-x) !important;
+		}
+
+		/*
+		 * PageFrame adds padding-inline-end to the header on mobile sidebar pages
+		 * to make room for the old right-side hamburger.
+		 * Now the hamburger is on the LEFT, so we swap the padding sides.
+		 */
+		:root[data-has-sidebar] header.header {
+			padding-inline-end: var(--sl-nav-pad-x) !important;
+			padding-inline-start: calc(
+				var(--sl-nav-gap) + var(--sl-nav-pad-x) + var(--sl-menu-button-size)
+			) !important;
+		}
 	}
-</style>
 
-<style>
-	/* ── Layout — identical to Starlight's built-in Header.astro ───────────── */
-	@layer starlight.core {
-		.header {
-			display: flex;
-			gap: var(--sl-nav-gap);
-			justify-content: space-between;
-			align-items: center;
-			height: 100%;
+	/* ═══════════════════════════════════════════════════════════
+	   STARLIGHT GRID ALIGNMENT  (desktop, ≥50rem)
+	   Keeps logo column flush with sidebar, search with content.
+	   ═══════════════════════════════════════════════════════════ */
+	@media (min-width: 50rem) {
+		:root[data-has-sidebar] {
+			--__sidebar-pad: calc(2 * var(--sl-nav-pad-x));
 		}
-
-		.title-wrapper {
-			/* Prevent long titles overflowing and covering search/menu on narrow viewports */
-			overflow: clip;
-			padding: 0.25rem;
-			margin: -0.25rem;
-			min-width: 0;
+		:root:not([data-has-toc]) {
+			--__toc-width: 0rem;
 		}
-
-		.right-group,
-		.social-icons {
-			gap: 1rem;
-			align-items: center;
-		}
-
-		.social-icons::after {
-			content: '';
-			height: 2rem;
-			border-inline-end: 1px solid var(--sl-color-gray-5);
-		}
-
-		@media (min-width: 50rem) {
-			:global(:root[data-has-sidebar]) {
-				--__sidebar-pad: calc(2 * var(--sl-nav-pad-x));
-			}
-			:global(:root:not([data-has-toc])) {
-				--__toc-width: 0rem;
-			}
-
-			/* Grid aligns the logo column with the sidebar, the search with the
-			   content column, and the right group to whatever space remains. */
-			.header {
-				--__sidebar-width: max(
-					0rem,
-					var(--sl-content-inline-start, 0rem) - var(--sl-nav-pad-x)
-				);
-				--__main-column-fr: calc(
-					(
-						100% + var(--__sidebar-pad, 0rem)
-						- var(--__toc-width, var(--sl-sidebar-width))
-						- (2 * var(--__toc-width, var(--sl-nav-pad-x)))
-						- var(--sl-content-inline-start, 0rem)
-						- var(--sl-content-width)
-					) / 2
-				);
-				display: grid;
-				grid-template-columns:
-					minmax(
-						calc(
-							var(--__sidebar-width) +
-							max(0rem, var(--__main-column-fr) - var(--sl-nav-gap))
-						),
-						auto
-					)
-					1fr
-					auto;
-				align-content: center;
-			}
+		.has-header-inner {
+			--__sidebar-width: max(
+				0rem,
+				var(--sl-content-inline-start, 0rem) - var(--sl-nav-pad-x)
+			);
+			--__main-column-fr: calc(
+				(
+					100% + var(--__sidebar-pad, 0rem)
+					- var(--__toc-width, var(--sl-sidebar-width))
+					- (2 * var(--__toc-width, var(--sl-nav-pad-x)))
+					- var(--sl-content-inline-start, 0rem)
+					- var(--sl-content-width)
+				) / 2
+			);
+			display: grid !important;
+			grid-template-columns:
+				minmax(
+					calc(
+						var(--__sidebar-width) +
+						max(0rem, var(--__main-column-fr) - var(--sl-nav-gap))
+					),
+					auto
+				)
+				1fr
+				auto !important;
+			align-content: center !important;
 		}
 	}
 </style>
