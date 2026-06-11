@@ -51,14 +51,20 @@ const { hasSidebar } = Astro.locals.starlightRoute;
 			);
 		}
 
-		/* Flex-row wrapper for sidebar + content on sidebar pages.
-		   Pushing it down by the fixed header height lets the sticky
-		   sidebar use top: nav-height without any extra offset. */
+		/* Wrapper for sidebar + content on sidebar pages.
+		   Block on mobile (sidebar is a fixed overlay, no row needed).
+		   Switches to flex-row at >=50rem where the sidebar becomes sticky. */
 		.page-body {
-			display: flex;
-			flex-direction: row;
+			display: block;
 			flex: 1 0 auto;
 			padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height));
+		}
+
+		@media (min-width: 50rem) {
+			.page-body {
+				display: flex;
+				flex-direction: row;
+			}
 		}
 
 		/* Mobile sidebar: full-screen overlay, toggled by the menu button */
