@@ -7,8 +7,8 @@ const { hasSidebar } = Astro.locals.starlightRoute;
 
 <div class="page sl-flex">
 	<header class="header"><slot name="header" /></header>
-	{
-		hasSidebar && (
+	{hasSidebar ? (
+		<div class="page-body">
 			<nav class="sidebar print:hidden" aria-label={Astro.locals.t('sidebarNav.accessibleLabel')}>
 				<MobileMenuToggle />
 				<div id="starlight__sidebar" class="sidebar-pane">
@@ -17,9 +17,11 @@ const { hasSidebar } = Astro.locals.starlightRoute;
 					</div>
 				</div>
 			</nav>
-		)
-	}
-	<div class="main-frame"><slot /></div>
+			<div class="main-frame"><slot /></div>
+		</div>
+	) : (
+		<div class="main-frame"><slot /></div>
+	)}
 	<SiteFooter />
 </div>
 
@@ -49,6 +51,17 @@ const { hasSidebar } = Astro.locals.starlightRoute;
 			);
 		}
 
+		/* Flex-row wrapper for sidebar + content on sidebar pages.
+		   Pushing it down by the fixed header height lets the sticky
+		   sidebar use top: nav-height without any extra offset. */
+		.page-body {
+			display: flex;
+			flex-direction: row;
+			flex: 1 0 auto;
+			padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height));
+		}
+
+		/* Mobile sidebar: full-screen overlay, toggled by the menu button */
 		.sidebar-pane {
 			visibility: var(--sl-sidebar-visibility, hidden);
 			position: fixed;
@@ -79,20 +92,45 @@ const { hasSidebar } = Astro.locals.starlightRoute;
 			}
 		}
 
-		.main-frame {
+		/* No-sidebar pages: main-frame is a direct child of .page */
+		.page > .main-frame {
 			padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height));
 			padding-inline-start: var(--sl-content-inline-start);
+		}
+
+		/* Sidebar pages: main-frame lives inside .page-body which already
+		   handles padding-top; no sidebar offset needed (sidebar is a flex sibling) */
+		.page-body > .main-frame {
+			flex: 1;
+			min-width: 0;
 		}
 
 		@media (min-width: 50rem) {
 			:global([data-has-sidebar]) .header {
 				padding-inline-end: var(--sl-nav-pad-x);
 			}
+
+			/* Desktop: sidebar switches from fixed overlay to sticky column.
+			   It scrolls independently within page-body and naturally stops
+			   at the footer — no JS height measurement needed. */
+			.sidebar {
+				width: var(--sl-sidebar-width);
+				flex-shrink: 0;
+			}
+
 			.sidebar-pane {
 				--sl-sidebar-visibility: visible;
+				position: sticky;
+				top: var(--sl-nav-height);
+				height: calc(100vh - var(--sl-nav-height));
 				width: var(--sl-sidebar-width);
 				background-color: var(--sl-color-bg-sidebar);
 				border-inline-end: 1px solid var(--sl-color-hairline-shade);
+				overflow-y: auto;
+				/* Clear the fixed-position inset values */
+				inset-block: unset;
+				inset-inline-start: unset;
+				z-index: auto;
 			}
 		}
 	}
