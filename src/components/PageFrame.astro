@@ -58,6 +58,9 @@ const { hasSidebar } = Astro.locals.starlightRoute;
 			display: block;
 			flex: 1 0 auto;
 			padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height));
+			/* clip prevents the sticky right sidebar (TOC) from visually
+			   bleeding into the footer when content is short */
+			overflow-y: clip;
 		}
 
 		@media (min-width: 50rem) {
