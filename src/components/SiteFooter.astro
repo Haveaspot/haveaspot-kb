@@ -141,22 +141,12 @@ const links = {
 </footer>
 
 <style is:global>
-	/* Forces body into flex column so footer sticks to bottom */
-	body {
-		display: flex !important;
-		flex-direction: column !important;
-		min-height: 100vh !important;
-		margin: 0 !important;
-	}
-
-	/* .page is the only in-flow flex child of body — make it grow */
-	.page {
-		flex: 1 0 auto !important;
-	}
-
-	/* .main-frame grows within .page to push the footer down on short pages */
-	.main-frame {
-		flex: 1 0 auto !important;
+	/* Content area has a consistent minimum height.
+	   Short pages (homepage, indexes) stay a predictable size.
+	   Long pages overflow past 60vh naturally — footer follows content. */
+	.main-frame,
+	.page-body {
+		min-height: 60vh !important;
 	}
 
 	/* Base Footer Outer Frame
