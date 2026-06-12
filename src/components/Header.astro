@@ -1,21 +1,15 @@
 ---
 /**
- * KB Header — blog visual structure with Starlight sub-components.
+ * KB Header — exact blog visual + behaviour, Starlight search preserved.
  *
- * Desktop: [Logo] [Search grows] [SocialIcons · ThemeSelect]
- * Mobile:  [hamburger LEFT (fixed, via CSS)] [Logo CENTER] [Search icon RIGHT]
- *
- * MobileMenuToggle is NOT rendered here — it lives in PageFrame's sidebar nav
- * so the CSS sibling rule ([aria-expanded='true'] ~ .sidebar-pane) that opens
- * the sidebar keeps working. On mobile we just move its fixed button to the
- * left with a CSS override so it matches the blog's layout.
+ * Desktop: [Logo] [🔍 Search] [Venues · Hosts · About | divider | Contact · KB | Log in | Sign up]
+ * Mobile:  [☰ hamburger] [Logo center] [🔍 search icon]
+ *          Hamburger opens the same off-canvas drawer as the blog.
+ *          Starlight's MobileMenuToggle stays in PageFrame (sidebar CSS rule preserved).
  */
 import config from 'virtual:starlight/user-config';
-import LanguageSelect from 'virtual:starlight/components/LanguageSelect';
 import Search from 'virtual:starlight/components/Search';
 import SiteTitle from 'virtual:starlight/components/SiteTitle';
-import SocialIcons from 'virtual:starlight/components/SocialIcons';
-import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 
 const shouldRenderSearch =
 	config.pagefind ||
@@ -23,157 +17,503 @@ const shouldRenderSearch =
 ---
 
 <div class="has-header-inner">
-	<div class="kb-title">
+
+	<!-- Mobile only: hamburger opens the off-canvas drawer -->
+	<button class="mobile-toggle" id="mobile-menu-btn" aria-label="Open Menu">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+			fill="none" stroke="currentColor" stroke-width="2"
+			stroke-linecap="round" stroke-linejoin="round">
+			<line x1="4" y1="12" x2="20" y2="12"></line>
+			<line x1="4" y1="6"  x2="20" y2="6"></line>
+			<line x1="4" y1="18" x2="20" y2="18"></line>
+		</svg>
+	</button>
+
+	<!-- Logo -->
+	<div class="has-logo-wrap">
 		<SiteTitle />
 	</div>
-	<div class="kb-search sl-flex print:hidden">
-		{shouldRenderSearch && <Search />}
-	</div>
-	<div class="sl-hidden md:sl-flex print:hidden kb-right-group">
-		<div class="sl-flex social-icons">
-			<SocialIcons />
+
+	<!-- Search: grows on desktop, compact icon on mobile (right side) -->
+	{shouldRenderSearch && (
+		<div class="kb-search">
+			<Search />
 		</div>
-		<ThemeSelect />
-		<LanguageSelect />
-	</div>
+	)}
+
+	<!-- Overlay backdrop for mobile drawer -->
+	<div id="mobile-overlay" class="mobile-overlay"></div>
+
+	<!-- Nav: inline on desktop / off-canvas drawer on mobile -->
+	<nav id="mobile-nav" class="has-nav" aria-label="Site navigation">
+
+		<!-- Drawer header — mobile only -->
+		<div class="mobile-drawer-header">
+			<span class="mobile-drawer-title">Menu</span>
+			<button id="mobile-close-btn" class="mobile-close" aria-label="Close Menu">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+					fill="none" stroke="currentColor" stroke-width="2"
+					stroke-linecap="round" stroke-linejoin="round">
+					<line x1="18" y1="6"  x2="6"  y2="18"></line>
+					<line x1="6"  y1="6"  x2="18" y2="18"></line>
+				</svg>
+			</button>
+		</div>
+
+		<div class="nav-links">
+			<a href="https://haveaspot.com/venues" class="nav-link">Venues</a>
+			<a href="https://haveaspot.com/hosts"  class="nav-link">Hosts</a>
+			<a href="https://haveaspot.com/about"  class="nav-link">About</a>
+		</div>
+
+		<div class="has-divider"></div>
+
+		<div class="has-icons">
+			<a href="https://haveaspot.com/contact/" class="icon-link"
+				aria-label="Contact Us" title="Contact Us">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+					viewBox="0 0 24 24" fill="none" stroke="currentColor"
+					stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<rect width="20" height="16" x="2" y="4" rx="2"></rect>
+					<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+				</svg>
+			</a>
+			<a href="https://support.haveaspot.com/" class="icon-link"
+				aria-label="Knowledge Base" title="Knowledge Base">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+					viewBox="0 0 24 24" fill="none" stroke="currentColor"
+					stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+					<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+				</svg>
+			</a>
+		</div>
+
+		<div class="auth-cluster">
+			<a href="https://haveaspot.com/login"         class="btn-secondary">Log in</a>
+			<a href="https://haveaspot.com/users/sign_up" class="btn-primary">Sign up</a>
+		</div>
+	</nav>
+
 </div>
 
 <style is:global>
-	/* ═══════════════════════════════════════════════════════════
-	   OUTER WRAPPER  (the <header class="header"> in PageFrame)
-	   ═══════════════════════════════════════════════════════════ */
+	/* ══════════════════════════════════════════════════════════════
+	   OUTER WRAPPER  (PageFrame's <header class="header">)
+	   Force nav height to 64px on all viewports to match the blog.
+	   Overriding the CSS variable keeps Starlight's padding-top
+	   calculations (page content, sticky sidebar) in sync.
+	   ══════════════════════════════════════════════════════════════ */
+	:root {
+		--sl-nav-height: 4rem !important; /* 64px — matches blog on mobile + desktop */
+	}
+
 	body header.header {
 		background-color: #ffffff !important;
 		border-bottom: 1px solid #e5e7eb !important;
 		font-family: 'Poppins', system-ui, sans-serif !important;
+		padding: 0 !important;
+		height: 64px !important;
 	}
 
-	/* ═══════════════════════════════════════════════════════════
-	   INNER CONTAINER  — mirrors the blog's .has-header-inner
-	   ═══════════════════════════════════════════════════════════ */
+	/* ══════════════════════════════════════════════════════════════
+	   INNER CONTAINER
+	   ══════════════════════════════════════════════════════════════ */
 	.has-header-inner {
 		display: flex !important;
 		flex-direction: row !important;
 		align-items: center !important;
 		justify-content: space-between !important;
-		max-width: 1536px !important;
-		margin: 0 auto !important;
+		width: 100% !important;
 		padding: 0 1rem !important;
 		height: 100% !important;
-		gap: 1rem !important;
 		box-sizing: border-box !important;
 	}
 
-	/* Search bar grows to fill the middle column */
+	/* ── Logo ───────────────────────────────────────────────────── */
+	.has-logo-wrap {
+		display: flex !important;
+		align-items: center !important;
+		flex-shrink: 0 !important;
+		margin-right: 1rem !important;
+	}
+
+	.has-logo-wrap a.site-title {
+		display: flex !important;
+		align-items: center !important;
+		text-decoration: none !important;
+	}
+
+	.has-logo-wrap .site-title img {
+		height: 38px !important;
+		width: 170px !important;
+		display: block !important;
+		object-fit: contain !important;
+		object-position: left center !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		overflow: visible !important;
+		border-radius: 0 !important;
+	}
+
+	/* ── Search (desktop: grows between logo and nav) ───────────── */
 	.kb-search {
 		flex: 1 !important;
 		min-width: 0 !important;
-	}
-
-	/* Right group: Explore button + contact icon + theme toggle */
-	.kb-right-group {
 		display: flex !important;
 		align-items: center !important;
-		gap: 1rem !important;
-		flex-shrink: 0 !important;
+		margin-right: 1rem !important;
 	}
 
-	/* Logo — matches blog's 34 px */
-	.kb-title .site-title img {
-		height: 34px !important;
-		width: auto !important;
+	.kb-search site-search,
+	.kb-search > * {
+		width: 100% !important;
 	}
 
-	/* Re-enable theme select (previously hidden in custom.css) */
-	starlight-theme-select {
+	/* ── Desktop nav (inline flex row) ─────────────────────────── */
+	.has-nav {
 		display: flex !important;
+		flex-direction: row !important;
+		align-items: center !important;
+		flex-shrink: 0 !important;
+		margin: 0 !important;
+		padding: 0 !important;
 	}
 
-	/* ═══════════════════════════════════════════════════════════
-	   MOBILE  (<50rem)
-	   Blog layout: [hamburger LEFT] [logo CENTER] [search RIGHT]
+	.nav-links {
+		display: flex !important;
+		flex-direction: row !important;
+		gap: 0.5rem !important;
+	}
 
-	   Starlight's MobileMenuToggle button is position:fixed at
-	   top-right. We move it to the left to match the blog, and
-	   center the logo absolutely within the header bar.
-	   ═══════════════════════════════════════════════════════════ */
-	@media (max-width: 49.999rem) {
+	.nav-link {
+		color: #021300 !important;
+		text-decoration: none !important;
+		font-size: 14px !important;
+		font-weight: 500 !important;
+		padding: 8px 12px !important;
+		border-radius: 6px !important;
+		transition: background-color 0.2s ease, color 0.2s ease !important;
+	}
+
+	.nav-link:hover {
+		background-color: #f3f4f6 !important;
+		text-decoration: none !important;
+		color: #021300 !important;
+	}
+
+	.has-divider {
+		width: 1px !important;
+		height: 24px !important;
+		background-color: #e5e7eb !important;
+		margin: 0 0.5rem !important;
+		flex-shrink: 0 !important;
+		display: block !important;
+	}
+
+	.has-icons {
+		display: flex !important;
+		flex-direction: row !important;
+		align-items: center !important;
+		gap: 0.25rem !important;
+		margin-right: 0.5rem !important;
+	}
+
+	.icon-link {
+		color: #021300 !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		padding: 8px !important;
+		border-radius: 6px !important;
+		text-decoration: none !important;
+		transition: background-color 0.2s ease, color 0.2s ease !important;
+	}
+
+	.icon-link:hover {
+		background-color: #f3f4f6 !important;
+		color: #021300 !important;
+		text-decoration: none !important;
+	}
+
+	.auth-cluster {
+		display: flex !important;
+		flex-direction: row !important;
+		align-items: center !important;
+		gap: 0.5rem !important;
+	}
+
+	.btn-secondary,
+	.btn-primary {
+		font-size: 14px !important;
+		font-weight: 500 !important;
+		padding: 8px 16px !important;
+		border-radius: 6px !important;
+		text-decoration: none !important;
+		transition: all 0.2s ease !important;
+		line-height: 20px !important;
+		height: 36px !important;
+		box-sizing: border-box !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+	}
+
+	.btn-secondary {
+		color: #021300 !important;
+		background-color: transparent !important;
+	}
+
+	.btn-secondary:hover {
+		background-color: #f3f4f6 !important;
+		text-decoration: none !important;
+	}
+
+	.btn-primary {
+		color: #ffffff !important;
+		background-color: #0aad0a !important;
+	}
+
+	.btn-primary:hover {
+		background-color: #0e491f !important;
+		text-decoration: none !important;
+	}
+
+	/* Theme toggle — not used, matches blog */
+	starlight-theme-select {
+		display: none !important;
+	}
+
+	/* Starlight's own hamburger — hidden visually on all sizes.
+	   It stays in PageFrame's sidebar DOM for the CSS sibling rule
+	   ([aria-expanded='true'] ~ .sidebar-pane) to keep working.    */
+	starlight-menu-button button {
+		opacity: 0 !important;
+		pointer-events: none !important;
+		position: fixed !important;
+	}
+
+	/* Desktop-only elements hidden by default */
+	.mobile-toggle,
+	.mobile-overlay,
+	.mobile-drawer-header {
+		display: none !important;
+	}
+
+	/* ══════════════════════════════════════════════════════════════
+	   MOBILE  (≤1024px)
+	   Layout: [☰ hamburger LEFT] [Logo CENTER] [🔍 search RIGHT]
+	   Off-canvas drawer: same behaviour as the blog.
+	   ══════════════════════════════════════════════════════════════ */
+	@media (max-width: 1024px) {
+
+		/* Header inner needs relative positioning for absolute logo */
 		.has-header-inner {
 			position: relative !important;
-			gap: 0 !important;
 		}
 
-		/* Logo centered */
-		.kb-title {
+		/* ── Hamburger ──────────────────────────────────────────── */
+		.mobile-toggle {
+			display: flex !important;
+			background: transparent !important;
+			border: none !important;
+			outline: none !important;
+			box-shadow: none !important;
+			color: #021300 !important;
+			cursor: pointer !important;
+			padding: 0.5rem 0 !important;
+			flex-shrink: 0 !important;
+		}
+
+		.mobile-toggle:focus,
+		.mobile-toggle:focus-visible {
+			outline: none !important;
+			box-shadow: none !important;
+		}
+
+		/* ── Logo: absolutely centered ──────────────────────────── */
+		.has-logo-wrap {
 			position: absolute !important;
 			left: 50% !important;
+			transform: translateX(-50%) !important;
+			margin-right: 0 !important;
+		}
+
+		/* ── Search icon: pinned to the right of the header ────────
+		   Absolute positioning (like the logo) guarantees it never
+		   overflows regardless of Starlight's internal button sizing. */
+		.kb-search {
+			position: absolute !important;
+			right: 1rem !important;
 			top: 50% !important;
-			transform: translate(-50%, -50%) !important;
+			transform: translateY(-50%) !important;
+			flex: none !important;
+			margin: 0 !important;
+			width: auto !important;
+		}
+
+		.kb-search site-search,
+		.kb-search > * {
+			width: auto !important;
+		}
+
+		/* Hide the "Search" text label — icon only on mobile */
+		.kb-search .sl-hidden {
+			display: none !important;
+		}
+
+		/* ── Overlay ────────────────────────────────────────────── */
+		.mobile-overlay {
+			display: block !important;
+			position: fixed !important;
+			inset: 0 !important;
+			background-color: rgba(0, 0, 0, 0.4) !important;
+			z-index: 999 !important;
+			opacity: 0 !important;
+			pointer-events: none !important;
+			transition: opacity 0.3s ease !important;
+		}
+
+		.mobile-overlay.open {
+			opacity: 1 !important;
 			pointer-events: auto !important;
 		}
 
-		/* Search icon pushed to the right */
-		.kb-search {
-			flex: 0 !important;
-			margin-left: auto !important;
+		/* ── Off-canvas drawer ──────────────────────────────────── */
+		.has-nav {
+			position: fixed !important;
+			top: 0 !important;
+			left: -100% !important;
+			width: 85% !important;
+			max-width: 340px !important;
+			height: 100dvh !important;
+			box-sizing: border-box !important;
+			background-color: #ffffff !important;
+			flex-direction: column !important;
+			align-items: stretch !important;
+			padding: 1.5rem 1.5rem 3rem 1.5rem !important;
+			z-index: 1000 !important;
+			overflow-y: auto !important;
+			transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+			box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1) !important;
 		}
 
-		/* Move Starlight's fixed hamburger from top-RIGHT → top-LEFT */
-		starlight-menu-button button {
-			inset-inline-end: unset !important;
-			inset-inline-start: var(--sl-nav-pad-x) !important;
+		.has-nav.open {
+			left: 0 !important;
 		}
 
-		/*
-		 * PageFrame adds padding-inline-end to the header on mobile sidebar pages
-		 * to make room for the old right-side hamburger.
-		 * Now the hamburger is on the LEFT, so we swap the padding sides.
-		 */
-		:root[data-has-sidebar] header.header {
-			padding-inline-end: var(--sl-nav-pad-x) !important;
-			padding-inline-start: calc(
-				var(--sl-nav-gap) + var(--sl-nav-pad-x) + var(--sl-menu-button-size)
-			) !important;
+		/* ── Drawer header (title + close button) ───────────────── */
+		.mobile-drawer-header {
+			display: flex !important;
+			justify-content: space-between !important;
+			align-items: center !important;
+			margin-bottom: 2rem !important;
+			border-bottom: 1px solid #e5e7eb !important;
+			padding-bottom: 1rem !important;
 		}
-	}
 
-	/* ═══════════════════════════════════════════════════════════
-	   STARLIGHT GRID ALIGNMENT  (desktop, ≥50rem)
-	   Keeps logo column flush with sidebar, search with content.
-	   ═══════════════════════════════════════════════════════════ */
-	@media (min-width: 50rem) {
-		:root[data-has-sidebar] {
-			--__sidebar-pad: calc(2 * var(--sl-nav-pad-x));
+		.mobile-drawer-title {
+			font-size: 18px !important;
+			font-weight: 600 !important;
+			color: #021300 !important;
 		}
-		:root:not([data-has-toc]) {
-			--__toc-width: 0rem;
+
+		.mobile-close {
+			background: transparent !important;
+			border: none !important;
+			color: #6b7280 !important;
+			cursor: pointer !important;
+			padding: 0.25rem !important;
+			display: flex !important;
+			transition: color 0.2s ease !important;
 		}
-		.has-header-inner {
-			--__sidebar-width: max(
-				0rem,
-				var(--sl-content-inline-start, 0rem) - var(--sl-nav-pad-x)
-			);
-			--__main-column-fr: calc(
-				(
-					100% + var(--__sidebar-pad, 0rem)
-					- var(--__toc-width, var(--sl-sidebar-width))
-					- (2 * var(--__toc-width, var(--sl-nav-pad-x)))
-					- var(--sl-content-inline-start, 0rem)
-					- var(--sl-content-width)
-				) / 2
-			);
-			display: grid !important;
-			grid-template-columns:
-				minmax(
-					calc(
-						var(--__sidebar-width) +
-						max(0rem, var(--__main-column-fr) - var(--sl-nav-gap))
-					),
-					auto
-				)
-				1fr
-				auto !important;
-			align-content: center !important;
+
+		.mobile-close:hover {
+			color: #021300 !important;
+		}
+
+		/* ── Drawer nav links ───────────────────────────────────── */
+		.nav-links {
+			flex-direction: column !important;
+			width: 100% !important;
+			gap: 0.5rem !important;
+			margin-bottom: 1.5rem !important;
+		}
+
+		.nav-link {
+			width: 100% !important;
+			text-align: left !important;
+			padding: 12px 0 !important;
+			font-size: 16px !important;
+		}
+
+		.nav-link:hover {
+			background-color: transparent !important;
+			color: #0aad0a !important;
+		}
+
+		/* ── Drawer icons ───────────────────────────────────────── */
+		.has-icons {
+			flex-direction: row !important;
+			justify-content: flex-start !important;
+			width: 100% !important;
+			gap: 1.5rem !important;
+			padding: 1rem 0 !important;
+			margin-right: 0 !important;
+			border-top: 1px solid #e5e7eb !important;
+		}
+
+		/* ── Drawer auth cluster ────────────────────────────────── */
+		.auth-cluster {
+			flex-direction: column !important;
+			width: 100% !important;
+			gap: 0.75rem !important;
+			margin-top: auto !important;
+			padding-top: 2rem !important;
+			flex-shrink: 0 !important;
+		}
+
+		.btn-secondary,
+		.btn-primary {
+			width: 100% !important;
+			padding: 12px 16px !important;
+			height: auto !important;
+			font-size: 15px !important;
+		}
+
+		.btn-secondary {
+			border: 1px solid #e5e7eb !important;
+		}
+
+		/* Divider hidden inside drawer */
+		.has-nav .has-divider {
+			display: none !important;
 		}
 	}
 </style>
+
+<script is:inline>
+	function toggleMobileMenu() {
+		const nav     = document.getElementById('mobile-nav');
+		const overlay = document.getElementById('mobile-overlay');
+		if (!nav || !overlay) return;
+
+		const opening = !nav.classList.contains('open');
+		nav.classList.toggle('open');
+		overlay.classList.toggle('open');
+		document.body.style.overflow = opening ? 'hidden' : '';
+	}
+
+	function initKBHeader() {
+		const openBtn  = document.getElementById('mobile-menu-btn');
+		const closeBtn = document.getElementById('mobile-close-btn');
+		const overlay  = document.getElementById('mobile-overlay');
+
+		if (openBtn)  openBtn.onclick  = toggleMobileMenu;
+		if (closeBtn) closeBtn.onclick = toggleMobileMenu;
+		if (overlay)  overlay.onclick  = toggleMobileMenu;
+	}
+
+	initKBHeader();
+	document.addEventListener('astro:page-load', initKBHeader);
+</script>
