@@ -141,12 +141,25 @@ const links = {
 </footer>
 
 <style is:global>
-	/* Content area has a consistent minimum height.
-	   Short pages (homepage, indexes) stay a predictable size.
-	   Long pages overflow past 60vh naturally — footer follows content. */
-	.main-frame,
-	.page-body {
-		min-height: 60vh !important;
+	/* Sticky footer: viewport-height page, footer always at the bottom.
+	   When content is taller than the viewport the footer drops below it. */
+	body {
+		display: flex !important;
+		flex-direction: column !important;
+		min-height: 100vh !important;
+		margin: 0 !important;
+	}
+
+	/* .page fills the remaining space inside body */
+	.page {
+		flex: 1 0 auto !important;
+	}
+
+	/* .page-body and .main-frame grow to consume spare space,
+	   pushing the footer to the viewport bottom on short pages */
+	.page-body,
+	.main-frame {
+		flex: 1 0 auto !important;
 	}
 
 	/* Base Footer Outer Frame
