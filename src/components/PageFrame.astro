@@ -58,9 +58,6 @@ const { hasSidebar } = Astro.locals.starlightRoute;
 			display: block;
 			flex: 1 0 auto;
 			padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height));
-			/* clip prevents the sticky right sidebar (TOC) from visually
-			   bleeding into the footer when content is short */
-			overflow-y: clip;
 		}
 
 		@media (min-width: 50rem) {
@@ -141,6 +138,27 @@ const { hasSidebar } = Astro.locals.starlightRoute;
 				inset-inline-start: unset;
 				z-index: auto;
 			}
+		}
+	}
+</style>
+
+<style is:global>
+	/*
+	 * Starlight's right sidebar (TOC) defaults to position:fixed + height:100vh,
+	 * which causes it to paint over the footer. Override to position:sticky so it
+	 * is contained within the page content and stops before the footer.
+	 */
+	@media (min-width: 72rem) {
+		.right-sidebar-container {
+			align-self: stretch !important;
+		}
+
+		.right-sidebar {
+			position: sticky !important;
+			top: var(--sl-nav-height) !important;
+			height: calc(100vh - var(--sl-nav-height)) !important;
+			padding-top: 1rem !important;
+			overflow-y: auto !important;
 		}
 	}
 </style>
