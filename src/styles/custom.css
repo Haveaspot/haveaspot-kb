@@ -68,6 +68,14 @@ h6,
   font-weight: 700;
 }
 
+/* In-article heading sizes */
+.sl-markdown-content h1 { font-size: 1.6rem !important; }
+.sl-markdown-content h2 { font-size: 1.25rem !important; }
+.sl-markdown-content h3 { font-size: 1.05rem !important; }
+.sl-markdown-content h4 { font-size: 0.95rem !important; }
+.sl-markdown-content h5 { font-size: 0.875rem !important; }
+.sl-markdown-content h6 { font-size: 0.85rem !important; }
+
 /* Nav & Sidebar Borders — border-bottom colour is set in Header.astro */
 header.header {
   border-top: none !important;
