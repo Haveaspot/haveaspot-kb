@@ -17,6 +17,13 @@ export default defineConfig({
             },
             head: [
                 {
+                    tag: 'meta',
+                    attrs: {
+                        name: 'format-detection',
+                        content: 'telephone=no',
+                    },
+                },
+                {
                     tag: 'link',
                     attrs: {
                         rel: 'preconnect',
