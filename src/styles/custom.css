@@ -68,6 +68,23 @@ h6,
   font-weight: 700;
 }
 
+/* In-article list styles (Tailwind resets these by default) */
+.sl-markdown-content ul {
+  list-style-type: disc !important;
+  padding-left: 1.5rem !important;
+  margin-block: 0.75rem !important;
+}
+
+.sl-markdown-content ol {
+  list-style-type: decimal !important;
+  padding-left: 1.5rem !important;
+  margin-block: 0.75rem !important;
+}
+
+.sl-markdown-content li {
+  margin-block: 0.25rem !important;
+}
+
 /* In-article heading sizes */
 .sl-markdown-content h1 { font-size: 1.6rem !important; }
 .sl-markdown-content h2 { font-size: 1.25rem !important; }
