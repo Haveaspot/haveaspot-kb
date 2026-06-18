@@ -42,6 +42,15 @@ body {
   color: #333333;
 }
 
+/* In-content hyperlinks */
+.sl-markdown-content a {
+  color: #0AAD0A !important;
+}
+
+.sl-markdown-content a:hover {
+  color: #021300 !important;
+}
+
 /* Headings */
 h1,
 h2,
