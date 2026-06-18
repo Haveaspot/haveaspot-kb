@@ -76,7 +76,20 @@ export default defineConfig({
             ],
             sidebar: [
                 { label: 'For Spots', autogenerate: { directory: 'spots' } },
-                { label: 'For Bookers', autogenerate: { directory: 'bookers' } },
+                {
+                    label: 'For Bookers',
+                    items: [
+                        { label: 'Guides for Bookers', link: '/bookers/' },
+                        { label: 'Account', autogenerate: { directory: 'bookers/account' } },
+                        { label: 'Booking', autogenerate: { directory: 'bookers/booking' } },
+                        { label: 'Fees and Payments', autogenerate: { directory: 'bookers/fees-and-payments' } },
+                        { label: 'Cancellations', autogenerate: { directory: 'bookers/cancellations' } },
+                        { label: 'Your Responsibilities', autogenerate: { directory: 'bookers/your-responsibilities' } },
+                        { label: 'Disputes', autogenerate: { directory: 'bookers/disputes' } },
+                        { label: 'Account Closure', autogenerate: { directory: 'bookers/account-closure' } },
+                        { label: 'Legal and Policy', autogenerate: { directory: 'bookers/legal-and-policy' } },
+                    ],
+                },
             ],
         }),
     ],
