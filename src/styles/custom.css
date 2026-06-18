@@ -219,6 +219,12 @@ input:focus {
   box-shadow: none !important;
 }
 
+.footer-legal-links a:focus,
+.footer-legal-links a:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 
 /* Search Bar Styles */
 site-search button {
