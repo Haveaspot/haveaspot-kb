@@ -292,7 +292,7 @@ site-search button span {
 
 site-search button kbd {
   border: 1px solid #FAFAFA !important;
-  background-color: #FAFAFA !important;
+  background-color: #F9FAFB !important;
   color: #021300 !important;
 }
 
@@ -539,8 +539,8 @@ starlight-toc a:hover *,
 
 .featured-grid .sl-link-card,
 .featured-grid .sl-link-card a {
-  background-color: #FAFAFA !important;
-  background: #FAFAFA !important;
+  background-color: #F9FAFB !important;
+  background: #F9FAFB !important;
   /* Overrides Starlight's default background gradients */
   border-radius: 8px !important;
   border: 1px solid transparent !important;
@@ -605,8 +605,8 @@ starlight-toc a:hover *,
 }
 
 .homepage-featured-list ul li a {
-  background: #FAFAFA none !important;
-  background-color: #FAFAFA !important;
+  background: #F9FAFB none !important;
+  background-color: #F9FAFB !important;
   color: #021300 !important;
   padding: 0.6rem 1rem !important;
   /* Creates the box shape */
@@ -1001,7 +1001,7 @@ starlight-toc a:hover *,
   mobile-starlight-toc nav a:hover {
     color: #0FED27 !important;
     /* Neon green text on hover */
-    background-color: #F8F9FA !important;
+    background-color: #F9FAFB !important;
     /* Very subtle light background on hover */
   }
 }
@@ -1036,7 +1036,7 @@ starlight-toc a:hover *,
   mobile-starlight-nav a[aria-current="page"] {
     color: #021300 !important;
     font-weight: 700 !important;
-    background-color: #FAFAFA !important;
+    background-color: #F9FAFB !important;
     /* Subtle highlight for active item */
     border-inline-start-color: #0FED27 !important;
     /* Neon green left border */
@@ -1047,7 +1047,7 @@ starlight-toc a:hover *,
   mobile-starlight-nav summary:hover {
     color: #0FED27 !important;
     /* Neon green text on hover */
-    background-color: #F8F9FA !important;
+    background-color: #F9FAFB !important;
   }
 }
 
@@ -1056,8 +1056,8 @@ starlight-toc a:hover *,
 
   /* 1. Override Starlight's internal variables specifically for the search component */
   site-search {
-    --sl-color-bg-nav: #FAFAFA !important;
-    --sl-color-bg: #FAFAFA !important;
+    --sl-color-bg-nav: #F9FAFB !important;
+    --sl-color-bg: #F9FAFB !important;
     --sl-color-text-accent: #021300 !important;
     /* Strips the neon green off the Cancel button */
   }
@@ -1066,8 +1066,8 @@ starlight-toc a:hover *,
   site-search dialog,
   site-search .dialog-frame,
   site-search dialog::backdrop {
-    background-color: #FAFAFA !important;
-    background: #FAFAFA !important;
+    background-color: #F9FAFB !important;
+    background: #F9FAFB !important;
   }
 
   /* 3. Brute-force any button inside the search dialog to be dark green */
