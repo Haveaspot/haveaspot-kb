@@ -11,7 +11,7 @@ Once a Booker confirms and pays for a booking, you will receive the **Hire Cost*
 
 1. The Booker pays the **Total Fee** (your Hire Cost plus the Haveaspot Booking Fee) at the time of booking
 2. Stripe processes the payment
-3. The **Hire Cost** portion is transferred to your Stripe Connect Account (less Stripe's processing fee)
+3. The **Hire Cost** portion is transferred to your Stripe Connect Account
 4. Stripe then pays out your balance to your linked bank account
 
 Haveaspot does **not** hold your funds at any point. Money moves from the Booker directly through Stripe to you.

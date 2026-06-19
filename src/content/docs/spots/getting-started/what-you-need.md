@@ -39,7 +39,7 @@ If you have any security cameras at your venue, you are required to disclose the
 
 ### Your Hire Cost (inclusive of VAT)
 
-Your **Hire Cost** must be set inclusive of VAT if you are VAT registered. Haveaspot adds its Booking Fee on top for the Booker — so the price you set is what you receive (before Stripe processing). See [How Does the Fee Structure Work?](/spots/payments/fee-structure/).
+Your **Hire Cost** must be set inclusive of VAT if you are VAT registered. Haveaspot adds its Booking Fee on top for the Booker — so the price you set is what you receive. See [How Does the Fee Structure Work?](/spots/payments/fee-structure/).
 
 ## Quick checklist
 
