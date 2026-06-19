@@ -13,8 +13,9 @@
 </div>
 
 <script>
-  document.getElementById('hero-search-trigger')?.addEventListener('click', () => {
-    const searchBtn = document.querySelector('site-search button') as HTMLButtonElement | null;
-    searchBtn?.click();
+  document.getElementById('hero-search-trigger')?.addEventListener('click', async () => {
+    await customElements.whenDefined('site-search');
+    const openBtn = document.querySelector('button[data-open-modal]') as HTMLButtonElement | null;
+    openBtn?.click();
   });
 </script>
