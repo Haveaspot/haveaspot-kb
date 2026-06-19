@@ -1,0 +1,20 @@
+---
+---
+<div class="hero-search-container">
+  <p class="hero-search-heading">Search for answers</p>
+  <p class="hero-search-subtext">Type a keyword to find guides and articles instantly.</p>
+  <button class="hero-search-btn" id="hero-search-trigger" aria-label="Open search">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="8"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    Search the knowledge base…
+  </button>
+</div>
+
+<script>
+  document.getElementById('hero-search-trigger')?.addEventListener('click', () => {
+    const searchBtn = document.querySelector('site-search button') as HTMLButtonElement | null;
+    searchBtn?.click();
+  });
+</script>
