@@ -326,10 +326,24 @@ site-search button kbd {
 .hero-search-container .hero-search-label .hero-search-heading {
   display: block !important;
   font-family: 'Poppins', sans-serif !important;
-  font-size: 3rem !important;
-  font-weight: 700 !important;
+  font-size: 2rem !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.02em !important;
   color: #FFFFFF !important;
   margin-bottom: 0.5rem !important;
+}
+
+@media (min-width: 768px) {
+  .hero-search-container .hero-search-label .hero-search-heading {
+    font-size: 2.5rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-search-container .hero-search-label .hero-search-heading {
+    font-size: clamp(2rem, 3vw, 3rem) !important;
+  }
 }
 
 .hero-search-container .hero-search-label .hero-search-subtext {
