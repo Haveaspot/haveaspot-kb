@@ -13,13 +13,33 @@
 </div>
 
 <script>
-  document.getElementById('hero-search-trigger')?.addEventListener('click', () => {
-    // Dispatch the keyboard shortcut Starlight's search dialog already listens for
-    window.dispatchEvent(new KeyboardEvent('keydown', {
-      key: 'k',
-      ctrlKey: true,
-      bubbles: true,
-      cancelable: true,
-    }));
-  });
+  function openStarlightSearch() {
+    const siteSearch = document.querySelector('site-search');
+    if (!siteSearch) return;
+    const dialog = siteSearch.querySelector('dialog') as HTMLDialogElement | null;
+    if (!dialog || dialog.open) return;
+
+    dialog.showModal();
+    document.body.toggleAttribute('data-search-modal-open', true);
+
+    // Focus the search input once the dialog is visible
+    requestAnimationFrame(() => {
+      (siteSearch.querySelector('input') as HTMLInputElement | null)?.focus();
+    });
+
+    // Close when clicking outside the dialog frame
+    const dialogFrame = siteSearch.querySelector('.dialog-frame');
+    function handleOutsideClick(e: MouseEvent) {
+      if (dialogFrame && !dialogFrame.contains(e.target as Node)) {
+        dialog!.close();
+        document.body.removeAttribute('data-search-modal-open');
+        window.removeEventListener('click', handleOutsideClick);
+      }
+    }
+    // Delay so this click doesn't immediately close it
+    setTimeout(() => window.addEventListener('click', handleOutsideClick), 0);
+  }
+
+  document.getElementById('hero-search-trigger')
+    ?.addEventListener('click', openStarlightSearch);
 </script>
