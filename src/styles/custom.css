@@ -326,10 +326,10 @@ site-search button kbd {
 .hero-search-container .hero-search-label .hero-search-heading {
   display: block !important;
   font-family: 'Poppins', sans-serif !important;
-  font-size: 1.75rem !important;
+  font-size: 3rem !important;
   font-weight: 700 !important;
   color: #FFFFFF !important;
-  margin-bottom: 0.4rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
 .hero-search-container .hero-search-label .hero-search-subtext {
