@@ -510,8 +510,7 @@ starlight-toc a:hover *,
   font-size: 0.8125rem !important;
   font-weight: 600 !important;
   /* Poppins Light */
-  color: #0FED27 !important;
-  /* Neon green text */
+  color: #FFFFFF !important;
   background-color: #021300 !important;
   /* Dark background */
   padding: 0.4rem 1rem !important;
@@ -529,9 +528,8 @@ starlight-toc a:hover *,
 /* Force neon green text on the heading and any injected links */
 .featured-heading,
 .featured-heading * {
-  color: #0FED27 !important;
-  -webkit-text-fill-color: #0FED27 !important;
-  /* Overrides Starlight text gradients */
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
   background-image: none !important;
   /* Removes Starlight text gradients */
 }
