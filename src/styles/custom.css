@@ -323,7 +323,7 @@ site-search button kbd {
   margin-bottom: 1.25rem !important;
 }
 
-.hero-search-heading {
+.hero-search-container .hero-search-label .hero-search-heading {
   display: block !important;
   font-family: 'Poppins', sans-serif !important;
   font-size: 1.75rem !important;
@@ -332,12 +332,12 @@ site-search button kbd {
   margin-bottom: 0.4rem !important;
 }
 
-.hero-search-subtext {
+.hero-search-container .hero-search-label .hero-search-subtext {
   display: block !important;
   font-family: 'Poppins', sans-serif !important;
   font-size: 0.9rem !important;
   font-weight: 300 !important;
-  color: rgba(255, 255, 255, 0.65) !important;
+  color: #FFFFFF !important;
 }
 
 /* Search bar — full width inside the container */
