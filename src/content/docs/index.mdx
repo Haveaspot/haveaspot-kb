@@ -15,9 +15,20 @@ hero:
 import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 import topArticles from '../../../data/top-articles.json';
 
+<div class="hero-search">
+  <button
+    class="hero-search-btn"
+    onclick="document.querySelector('site-search button').click()"
+    aria-label="Search the knowledge base"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    Search the knowledge base…
+  </button>
+</div>
+
 <CardGrid>
   <div class="cta-column">
-    <LinkCard title="I run a Spot" description="Resources for Spot managers." href="/spots/" />
+    <LinkCard title="I run a Spot" description="Register your Spot, set your rates, manage bookings, and get paid." href="/spots/" />
     <div class="homepage-featured-list">
       <p class="list-title">Top 5 Guides For Spots</p>
       <ul>
@@ -30,7 +41,7 @@ import topArticles from '../../../data/top-articles.json';
 
   <div class="cta-column">
     <div class="mobile-booking-gap">
-      <LinkCard title="I'm booking a Spot" description="Resources for people booking Spots." href="/bookers/" />
+      <LinkCard title="I'm booking a Spot" description="Find spaces, understand fees, manage cancellations, and know your rights." href="/bookers/" />
       <div class="homepage-featured-list">
         <p class="list-title">Top 5 Guides For Bookers</p>
         <ul>
@@ -45,9 +56,9 @@ import topArticles from '../../../data/top-articles.json';
 
 <div class="support-banner">
   <h2 class="support-heading">Need more help?</h2>
-  <p class="support-subtext">Can't find what you're looking for? Reach out to our team directly or submit a support ticket, and we'll get back to you as soon as possible.</p>
+  <p class="support-subtext">Can't find what you're looking for? Reach out to our team directly or send us an email and we'll get back to you as soon as possible.</p>
   <div class="support-buttons">
     <a href="https://haveaspot.com/contact/" class="support-btn secondary-btn">Contact Us</a>
-    <a href="mailto:support@haveaspot.com?subject=Support%20Enquiry&body=Name:%0A%0AEmail:%0A%0AUser%20Type%20(Booker%20or%20Spot%20Manager):%0A%0AEnquiry:%0A" class="support-btn primary-btn">Submit a Ticket</a>
+    <a href="mailto:support@haveaspot.com?subject=Support%20Enquiry&body=Name:%0A%0AEmail:%0A%0AUser%20Type%20(Booker%20or%20Spot%20Manager):%0A%0AEnquiry:%0A" class="support-btn primary-btn">Email Us</a>
   </div>
 </div>
