@@ -670,6 +670,7 @@ starlight-toc a:hover *,
 @media (min-width: 1024px) {
   .support-left {
     width: 50% !important;
+    justify-content: center !important;
   }
 }
 
