@@ -296,9 +296,14 @@ site-search button kbd {
   color: #021300 !important;
 }
 
-/* Homepage hero — reduce excess vertical space */
+/* Homepage hero — hide the default title/tagline (now inside the search container) */
 [data-page-layout="splash"] .hero {
-  padding-block: 2rem !important;
+  padding-block: 0 !important;
+}
+
+[data-page-layout="splash"] .hero h1,
+[data-page-layout="splash"] .hero .tagline {
+  display: none !important;
 }
 
 /* Hero search container */
@@ -310,22 +315,32 @@ site-search button kbd {
   margin-bottom: 3rem !important;
 }
 
+/* Label block sits inside the dark container, above the bar */
+.hero-search-label {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  margin-bottom: 1.25rem !important;
+}
+
 .hero-search-heading {
+  display: block !important;
   font-family: 'Poppins', sans-serif !important;
-  font-size: 1.4rem !important;
+  font-size: 1.75rem !important;
   font-weight: 700 !important;
   color: #FFFFFF !important;
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 0.4rem !important;
 }
 
 .hero-search-subtext {
+  display: block !important;
   font-family: 'Poppins', sans-serif !important;
   font-size: 0.9rem !important;
   font-weight: 300 !important;
   color: rgba(255, 255, 255, 0.65) !important;
-  margin-bottom: 1.5rem !important;
 }
 
+/* Search bar — full width inside the container */
 .hero-search-btn {
   display: flex !important;
   align-items: center !important;
@@ -333,14 +348,12 @@ site-search button kbd {
   background: #FFFFFF !important;
   border: 1px solid transparent !important;
   border-radius: 8px !important;
-  padding: 0.75rem 1.25rem !important;
+  padding: 0.875rem 1.25rem !important;
   font-family: 'Poppins', sans-serif !important;
   font-size: 0.95rem !important;
   color: #888888 !important;
   cursor: pointer !important;
   width: 100% !important;
-  max-width: 520px !important;
-  margin-inline: auto !important;
   text-align: left !important;
   transition: border-color 0.2s ease !important;
 }
