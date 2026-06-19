@@ -718,7 +718,6 @@ starlight-toc a:hover *,
   gap: 1rem !important;
   justify-content: flex-start !important;
   flex-wrap: wrap !important;
-  margin-top: auto !important;
 }
 
 /* Override button styles within the support banner to match About site CTA */
