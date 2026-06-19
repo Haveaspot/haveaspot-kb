@@ -5,15 +5,19 @@ sidebar:
   order: 2
 ---
 
-If you decide that Haveaspot is no longer right for your venue, you can close your account by giving written notice. Here is what the process looks like and what you need to be aware of before you proceed.
+If you decide that Haveaspot is no longer right for your venue, you can close your account in one of two ways. Here is what the process looks like and what you need to be aware of before you proceed.
 
 ## How to close your account
 
-To request account closure, send a written notice to:
+### Option 1 — Close via the platform
 
-**support@haveaspot.com**
+You can delete your account directly from your Venue Dashboard by going to:
 
-Your notice should clearly state that you wish to terminate your Venue account and include your account name and registered email address. Verbal requests or messages sent through other channels are not sufficient — the notice must be in writing.
+**Venue Dashboard → Profile → Delete Account**
+
+### Option 2 — Request closure by email
+
+Send a written notice to **support@haveaspot.com** clearly stating that you wish to terminate your Venue account, along with your account name and registered email address.
 
 ## What happens after you give notice?
 
