@@ -42,6 +42,12 @@ body {
   color: #333333;
 }
 
+/* Heading anchor link icon — smaller icon, neater gap */
+.sl-markdown-content .sl-heading-wrapper {
+  --sl-anchor-icon-size: 0.55em !important;
+  --sl-anchor-icon-gap: 0.4em !important;
+}
+
 /* In-article bold text */
 .sl-markdown-content strong,
 .sl-markdown-content b {
