@@ -13,17 +13,17 @@ hero:
 ---
 
 import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+import topArticles from '../../../data/top-articles.json';
 
 <CardGrid>
   <div class="cta-column">
     <LinkCard title="I run a Spot" description="Resources for Spot managers." href="/spots/" />
     <div class="homepage-featured-list">
-      <p class="list-title">Featured Guides For Spots</p>
+      <p class="list-title">Top 5 Guides For Spots</p>
       <ul>
-        <li><a href="/spots/registration/">Registering your Spot</a></li>
-        <li><a href="/spots/pricing-guide/">Setting your Rates</a></li>
-        <li><a href="/spots/payouts/">Getting Paid</a></li>
-        <li><a href="/spots/managing-bookings/">Managing your Calendar</a></li>
+        {topArticles.spots.map(article => (
+          <li><a href={article.href}>{article.title}</a></li>
+        ))}
       </ul>
     </div>
   </div>
@@ -32,12 +32,11 @@ import { LinkCard, CardGrid } from '@astrojs/starlight/components';
     <div class="mobile-booking-gap">
       <LinkCard title="I'm booking a Spot" description="Resources for people booking Spots." href="/bookers/" />
       <div class="homepage-featured-list">
-        <p class="list-title">Featured Guides For Bookers</p>
+        <p class="list-title">Top 5 Guides For Bookers</p>
         <ul>
-          <li><a href="/bookers/finding-spots/">Finding the Perfect Spot</a></li>
-          <li><a href="/bookers/booking-process/">How the Booking Process Works</a></li>
-          <li><a href="/bookers/cancellation-policy/">Cancellations and Refunds</a></li>
-          <li><a href="/bookers/payment-methods/">Payment Methods</a></li>
+          {topArticles.bookers.map(article => (
+            <li><a href={article.href}>{article.title}</a></li>
+          ))}
         </ul>
       </div>
     </div>

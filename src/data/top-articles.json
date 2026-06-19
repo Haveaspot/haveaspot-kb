@@ -1,0 +1,16 @@
+{
+  "spots": [
+    { "title": "Registering your Spot", "href": "/spots/registration/" },
+    { "title": "Setting your Rates", "href": "/spots/pricing-guide/" },
+    { "title": "Getting Paid", "href": "/spots/payouts/" },
+    { "title": "Managing your Calendar", "href": "/spots/managing-bookings/" },
+    { "title": "Spot Quality Standards", "href": "/spots/quality-standards/" }
+  ],
+  "bookers": [
+    { "title": "How Does the Booking Process Work?", "href": "/bookers/booking/booking-process/" },
+    { "title": "What Refund Will I Receive If I Cancel?", "href": "/bookers/cancellations/refund-tiers/" },
+    { "title": "What Are House Rules and Where Can I Find Them?", "href": "/bookers/booking/house-rules/" },
+    { "title": "What Is the 48-Hour Grace Period?", "href": "/bookers/cancellations/grace-period/" },
+    { "title": "What Does the Total Fee Include?", "href": "/bookers/fees-and-payments/total-fee/" }
+  ]
+}
