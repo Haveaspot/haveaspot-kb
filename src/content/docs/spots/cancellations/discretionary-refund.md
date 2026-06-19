@@ -20,8 +20,9 @@ This means that a discretionary refund comes entirely at your own cost. You are 
 Haveaspot will recover the Booking Fee (plus VAT) by:
 
 1. **Automatic debit** from your Stripe Connect Account
-2. **Right of set-off** against future payouts, if an automatic debit is not possible
-3. **Direct invoice** payable within 30 days, if neither of the above is sufficient — failure to pay may result in account suspension and debt recovery action
+2. **Bank account debit** — if the refund causes a negative balance on your Stripe account, Stripe is authorised under your Stripe Connected Account Agreement to debit your linked bank account directly to recover that shortfall
+3. **Right of set-off** against future payouts, if the above are insufficient
+4. **Direct invoice** payable within 30 days, if none of the above recover the full amount — failure to pay may result in account suspension and debt recovery action
 
 ## Before issuing a discretionary refund
 
