@@ -45,7 +45,7 @@ body {
 /* Heading anchor link icon — smaller icon, neater gap */
 .sl-markdown-content .sl-heading-wrapper {
   --sl-anchor-icon-size: 0.55em !important;
-  --sl-anchor-icon-gap: 0.4em !important;
+  --sl-anchor-icon-gap: 0.6em !important;
 }
 
 /* In-article bold text */
