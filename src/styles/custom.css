@@ -609,9 +609,8 @@ starlight-toc a:hover *,
   background-color: #F9FAFB !important;
   color: #021300 !important;
   padding: 0.6rem 1rem !important;
-  /* Creates the box shape */
   border-radius: 8px !important;
-  border: 1px solid transparent !important;
+  border: 1px solid #021300 !important;
   display: block !important;
   text-decoration: none !important;
   font-size: 0.95rem !important;
