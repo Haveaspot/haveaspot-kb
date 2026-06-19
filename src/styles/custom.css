@@ -250,6 +250,12 @@ input:focus {
   outline-offset: 2px;
 }
 
+.sl-markdown-content a:focus,
+.sl-markdown-content a:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 /* Theme toggle visibility is managed in Header.astro */
 
 /* Custom Logo Sizing */
