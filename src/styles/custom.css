@@ -326,10 +326,18 @@ site-search button kbd {
   margin-bottom: 1.5rem !important;
 }
 
-.hero-search-btn {
+/* Hero search — restyle the embedded Starlight Search button */
+.hero-search-wrapper {
   display: flex !important;
-  align-items: center !important;
-  gap: 0.65rem !important;
+  justify-content: center !important;
+}
+
+.hero-search-wrapper site-search {
+  width: 100% !important;
+  max-width: 520px !important;
+}
+
+.hero-search-wrapper button[data-open-modal] {
   background: #FFFFFF !important;
   border: 1px solid transparent !important;
   border-radius: 8px !important;
@@ -337,21 +345,32 @@ site-search button kbd {
   font-family: 'Poppins', sans-serif !important;
   font-size: 0.95rem !important;
   color: #888888 !important;
-  cursor: pointer !important;
   width: 100% !important;
-  max-width: 520px !important;
-  margin-inline: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
   text-align: left !important;
   transition: border-color 0.2s ease !important;
 }
 
-.hero-search-btn svg {
+.hero-search-wrapper button[data-open-modal]:hover {
+  border-color: #0AAD0A !important;
   color: #888888 !important;
-  flex-shrink: 0 !important;
 }
 
-.hero-search-btn:hover {
-  border-color: #0AAD0A !important;
+.hero-search-wrapper button[data-open-modal] svg {
+  color: #888888 !important;
+}
+
+.hero-search-wrapper button[data-open-modal] span {
+  color: #888888 !important;
+  display: block !important;
+}
+
+.hero-search-wrapper button[data-open-modal] kbd {
+  margin-inline-start: auto !important;
+  color: #aaaaaa !important;
+  background-color: #f3f4f6 !important;
+  border: 1px solid #e5e7eb !important;
 }
 
 /* Homepage Call-to-Action Cards */
