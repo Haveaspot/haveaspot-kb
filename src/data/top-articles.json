@@ -1,10 +1,10 @@
 {
   "spots": [
-    { "title": "Registering your Spot", "href": "/spots/registration/" },
-    { "title": "Setting your Rates", "href": "/spots/pricing-guide/" },
-    { "title": "Getting Paid", "href": "/spots/payouts/" },
-    { "title": "Managing your Calendar", "href": "/spots/managing-bookings/" },
-    { "title": "Spot Quality Standards", "href": "/spots/quality-standards/" }
+    { "title": "What Is Haveaspot and How Does It Work?", "href": "/spots/getting-started/what-is-haveaspot/" },
+    { "title": "How Does the Fee Structure Work?", "href": "/spots/payments/fee-structure/" },
+    { "title": "When and How Will I Get Paid?", "href": "/spots/payments/payouts/" },
+    { "title": "Understanding the Cancellation Policy", "href": "/spots/cancellations/cancellation-policy/" },
+    { "title": "How to Write Effective House Rules", "href": "/spots/managing-your-listing/house-rules/" }
   ],
   "bookers": [
     { "title": "How Does the Booking Process Work?", "href": "/bookers/booking/booking-process/" },
