@@ -77,6 +77,7 @@ export default defineConfig({
             sidebar: [
                 {
                     label: 'For Spots',
+                    collapsed: true,
                     items: [
                         { label: 'Guides for Spots', link: '/spots/' },
                         { label: 'Getting Started', autogenerate: { directory: 'spots/getting-started' } },
@@ -90,6 +91,7 @@ export default defineConfig({
                 },
                 {
                     label: 'For Bookers',
+                    collapsed: true,
                     items: [
                         { label: 'Guides for Bookers', link: '/bookers/' },
                         { label: 'Account', autogenerate: { directory: 'bookers/account' } },
