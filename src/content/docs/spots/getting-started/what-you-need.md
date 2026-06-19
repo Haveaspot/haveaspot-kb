@@ -11,9 +11,9 @@ Before your listing can go live and start accepting bookings, there are a few im
 
 ### A Stripe Connect Account
 
-You **must** have a verified Stripe Connect Account to receive payments through Haveaspot. Stripe handles all payment processing, and without a connected account your listing cannot accept bookings.
+You need a verified **Stripe Connect Account** to receive payments through Haveaspot — but you do not need to set this up before you start. **Stripe Connect Account setup is part of the Haveaspot onboarding process.** When you register your Spot, you will be guided through connecting with Stripe at the appropriate step.
 
-Stripe will ask you to go through a **Know Your Customer (KYC)** verification process. This involves providing identity and business information. Haveaspot does not control this process — it is managed entirely by Stripe. See [Setting Up Your Stripe Account](/spots/payments/stripe-setup/) for step-by-step guidance.
+During this process, Stripe will carry out a **Know Your Customer (KYC)** verification, which involves providing some identity and business information. This is managed entirely by Stripe, not Haveaspot. See [Setting Up Your Stripe Account](/spots/payments/stripe-setup/) for more detail on what to expect.
 
 ### Public liability insurance
 
@@ -43,7 +43,7 @@ Your **Hire Cost** must be set inclusive of VAT if you are VAT registered. Havea
 
 ## Quick checklist
 
-- [ ] Stripe Connect Account set up and verified
+- [ ] Stripe Connect Account connected (completed during onboarding)
 - [ ] Public liability insurance in place
 - [ ] Alcohol licences obtained (if applicable)
 - [ ] Space description accurate and complete

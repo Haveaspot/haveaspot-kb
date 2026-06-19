@@ -38,4 +38,4 @@ See [How Does the Fee Structure Work?](/spots/payments/fee-structure/) for a ful
 
 ## Getting started
 
-Before you can go live, you will need a few things in place — including a verified Stripe account. See [What Do I Need Before I Can Start Listing My Spot?](/spots/getting-started/what-you-need/) for a full checklist.
+Before you can go live, you will need a few things in place — such as public liability insurance and, if applicable, an alcohol licence. Your Stripe Connect Account for receiving payments is set up as part of the onboarding process itself, so there is nothing to arrange separately beforehand. See [What Do I Need Before I Can Start Listing My Spot?](/spots/getting-started/what-you-need/) for a full checklist.

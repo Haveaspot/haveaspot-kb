@@ -5,7 +5,7 @@ sidebar:
   order: 1
 ---
 
-All payments on Haveaspot are processed through **Stripe**, a leading payment processor used by businesses worldwide. To receive payouts for your bookings, you must connect a **Stripe Connect Account** to your Haveaspot profile. This is a mandatory requirement — without it, you cannot accept bookings.
+All payments on Haveaspot are processed through **Stripe**, a leading payment processor used by businesses worldwide. To receive payouts for your bookings, you need a **Stripe Connect Account** linked to your Haveaspot profile — and the good news is that setting one up is part of the Haveaspot onboarding process. You will be guided through it step by step when you register your Spot.
 
 ## Why Stripe?
 
