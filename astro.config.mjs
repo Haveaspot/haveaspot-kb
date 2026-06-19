@@ -75,7 +75,19 @@ export default defineConfig({
                 }
             ],
             sidebar: [
-                { label: 'For Spots', autogenerate: { directory: 'spots' } },
+                {
+                    label: 'For Spots',
+                    items: [
+                        { label: 'Guides for Spots', link: '/spots/' },
+                        { label: 'Getting Started', autogenerate: { directory: 'spots/getting-started' } },
+                        { label: 'Payments', autogenerate: { directory: 'spots/payments' } },
+                        { label: 'Cancellations', autogenerate: { directory: 'spots/cancellations' } },
+                        { label: 'Managing Your Listing', autogenerate: { directory: 'spots/managing-your-listing' } },
+                        { label: 'Legal', autogenerate: { directory: 'spots/legal' } },
+                        { label: 'Team', autogenerate: { directory: 'spots/team' } },
+                        { label: 'Your Account', autogenerate: { directory: 'spots/account' } },
+                    ],
+                },
                 {
                     label: 'For Bookers',
                     items: [
