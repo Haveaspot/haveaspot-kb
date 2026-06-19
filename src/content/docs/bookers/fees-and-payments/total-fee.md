@@ -13,7 +13,7 @@ When you make a booking on Haveaspot, the **Total Fee** is the full amount you p
 This is the fee set by the Venue for the use of their space for your chosen time and date. Venues set their own rates. If the Venue is VAT registered, their Hire Cost will already include VAT.
 
 ### 2. The Haveaspot Booking Fee
-This is the fee charged by Haveaspot for providing the Platform and facilitating your Booking. It is calculated as a percentage of the Hire Cost. The Booking Fee includes VAT where this is required under UK law.
+This is the fee charged by Haveaspot for providing the Platform and facilitating your Booking. It is calculated at **15% of the Hire Cost**. The Booking Fee includes VAT where this is required under UK law.
 
 ### 3. VAT on the Haveaspot Booking Fee
 VAT applicable to the Haveaspot Booking Fee is included within the Booking Fee figure shown at checkout.
