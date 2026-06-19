@@ -537,13 +537,18 @@ starlight-toc a:hover *,
   /* Removes Starlight text gradients */
 }
 
-.featured-grid .sl-link-card,
-.featured-grid .sl-link-card a {
+.featured-grid .sl-link-card {
   background-color: #F9FAFB !important;
   background: #F9FAFB !important;
   border-radius: 8px !important;
   border: 1px solid #021300 !important;
   transition: border-color 0.2s ease;
+}
+
+.featured-grid .sl-link-card a {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
 }
 
 .featured-grid .sl-link-card:hover {
@@ -554,7 +559,7 @@ starlight-toc a:hover *,
   color: #021300 !important;
   font-family: 'Poppins', sans-serif !important;
   font-weight: 700 !important;
-  font-size: 1.1rem !important;
+  font-size: 0.95rem !important;
 }
 
 /* Hide descriptions to keep it clean and title-only */
