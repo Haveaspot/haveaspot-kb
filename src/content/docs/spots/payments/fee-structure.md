@@ -17,7 +17,7 @@ The **Hire Cost** is the price you set for the use of your space. This is the am
 
 ### Haveaspot Booking Fee
 
-Haveaspot charges Bookers a **Booking Fee**, which is a percentage of your Hire Cost. This fee is paid by the Booker — it is added on top of your Hire Cost when they check out. You do **not** pay this fee, and it does not reduce the amount you receive.
+Haveaspot charges Bookers a **Booking Fee** of **15% of your Hire Cost**. This fee is paid by the Booker — it is added on top of your Hire Cost when they check out. You do **not** pay this fee, and it does not reduce the amount you receive.
 
 **Listing your space on Haveaspot is free.** There are no fees charged to you as a Venue for using the platform.
 
@@ -30,8 +30,8 @@ The **Total Fee** is what the Booker pays in full — your Hire Cost plus the Ha
 | | Amount |
 |---|---|
 | Your Hire Cost | £200 |
-| Haveaspot Booking Fee (paid by Booker) | £20 |
-| **Total Fee (paid by Booker)** | **£220** |
+| Haveaspot Booking Fee — 15% (paid by Booker) | £30 |
+| **Total Fee (paid by Booker)** | **£230** |
 | **Your payout** | **£200** |
 
 *The above is illustrative only.*
