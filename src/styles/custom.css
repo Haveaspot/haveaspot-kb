@@ -307,7 +307,7 @@ site-search button kbd {
 }
 
 [data-page-layout="splash"] .content-panel {
-  padding-top: 1rem !important;
+  padding-top: 0 !important;
 }
 
 [data-page-layout="splash"] .sl-container > * + * {
