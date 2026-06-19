@@ -1,11 +1,15 @@
 ---
 title: "Can I Take Bookings Outside of Haveaspot?"
-description: "Why taking bookings off-platform is prohibited and what the consequences are."
+description: "Understanding what the non-circumvention rule covers and what you are still free to do."
 sidebar:
   order: 1
 ---
 
-No. Once you are listed on Haveaspot, you must not **circumvent the platform** by arranging bookings directly with Bookers you first encountered through Haveaspot. This is known as the **non-circumvention rule**, and it is a core condition of your Venue Service Agreement.
+It depends on how the Booker found you.
+
+**You can continue to take direct bookings from anyone who approaches you independently** — for example, a local organisation that contacts you directly, a repeat customer from before you joined Haveaspot, or someone who found your venue through your own marketing or website. Listing on Haveaspot does not restrict your ability to run your venue or take bookings through your own channels.
+
+What you must **not** do is circumvent the platform by arranging a booking directly with someone who found or contacted you **through Haveaspot**. This is known as the **non-circumvention rule**, and it is a core condition of your Venue Service Agreement.
 
 ## What the rule covers
 
