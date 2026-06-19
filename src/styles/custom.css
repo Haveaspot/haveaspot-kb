@@ -302,7 +302,8 @@ site-search button kbd {
 }
 
 [data-has-hero] .content-panel {
-  padding-top: 0.75rem !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 3rem !important;
 }
 
 [data-has-hero] .sl-container > * + * {
