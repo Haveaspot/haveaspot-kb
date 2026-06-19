@@ -296,13 +296,8 @@ site-search button kbd {
   color: #021300 !important;
 }
 
-/* Homepage — remove hero space and pull content to the top */
+/* Homepage — hide the empty hero section entirely (title moved into search container) */
 [data-page-layout="splash"] .hero {
-  padding-block: 0 !important;
-}
-
-[data-page-layout="splash"] .hero h1,
-[data-page-layout="splash"] .hero .tagline {
   display: none !important;
 }
 
