@@ -7,9 +7,17 @@ sidebar:
 
 You can stop using Haveaspot and request the deletion of your account at any time. There are no penalties or exit fees for closing your account.
 
-## How to Request Account Deletion
+## How to Delete Your Account
 
-To close your account, contact us at [support@haveaspot.com](mailto:support@haveaspot.com) with your request. Please use the email address associated with your Haveaspot account so we can verify your identity.
+You can delete your account in one of two ways:
+
+### Option 1 — Delete via the platform
+
+Go to **Booker Dashboard → Profile → Delete Account** to delete your account directly.
+
+### Option 2 — Request deletion by email
+
+Contact us at [support@haveaspot.com](mailto:support@haveaspot.com) using the email address associated with your account so we can verify your identity and process your request.
 
 ## What Happens to Your Bookings?
 
