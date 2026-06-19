@@ -296,7 +296,7 @@ site-search button kbd {
   color: #021300 !important;
 }
 
-/* Homepage hero — hide the default title/tagline (now inside the search container) */
+/* Homepage — remove hero space and pull content to the top */
 [data-page-layout="splash"] .hero {
   padding-block: 0 !important;
 }
@@ -304,6 +304,14 @@ site-search button kbd {
 [data-page-layout="splash"] .hero h1,
 [data-page-layout="splash"] .hero .tagline {
   display: none !important;
+}
+
+[data-page-layout="splash"] .content-panel {
+  padding-top: 1rem !important;
+}
+
+[data-page-layout="splash"] .sl-container > * + * {
+  margin-top: 0 !important;
 }
 
 /* Hero search container */
