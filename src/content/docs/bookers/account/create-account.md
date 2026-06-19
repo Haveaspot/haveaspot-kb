@@ -5,7 +5,7 @@ sidebar:
   order: 1
 ---
 
-To book community spaces on Haveaspot you need a registered account. Creating one is free and takes only a few minutes.
+To book community spaces on Haveaspot you need a registered account. Creating one is free and takes only a few minutes. You can create your account **in advance** at any time, or **during the booking process** — if you do not already have an account when you go to make a booking, you will be prompted to create one at that point.
 
 ## Who Can Create an Account?
 
