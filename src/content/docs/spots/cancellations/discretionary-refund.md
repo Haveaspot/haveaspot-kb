@@ -17,6 +17,12 @@ Issuing a discretionary refund does **not** reduce your obligation to pay the **
 
 This means that a discretionary refund comes entirely at your own cost. You are effectively waiving your entitlement to the Hire Cost without recovering the Booking Fee.
 
+Haveaspot will recover the Booking Fee (plus VAT) by:
+
+1. **Automatic debit** from your Stripe Connect Account
+2. **Right of set-off** against future payouts, if an automatic debit is not possible
+3. **Direct invoice** payable within 30 days, if neither of the above is sufficient — failure to pay may result in account suspension and debt recovery action
+
 ## Before issuing a discretionary refund
 
 Consider the following:

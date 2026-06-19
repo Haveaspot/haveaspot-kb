@@ -13,9 +13,17 @@ If you cancel a confirmed booking:
 
 - The Booker receives a **100% refund of the Total Fee** they paid — this includes both the Hire Cost and the Haveaspot Booking Fee
 - You become liable to pay Haveaspot the **Haveaspot Booking Fee plus VAT** — this is a direct financial obligation to Haveaspot, not the Booker
-- Haveaspot may deduct this amount from your **future payouts** using its right of set-off
 
 In short, a venue cancellation costs you the Booking Fee, even though you received no income from the booking.
+
+## How Haveaspot recovers the Booking Fee
+
+Haveaspot will recover the outstanding Booking Fee (plus VAT) through the following steps:
+
+1. **Automatic debit** — Haveaspot will first attempt to debit the amount directly from your Stripe Connect Account
+2. **Right of set-off** — if an automatic debit is not possible, Haveaspot may withhold the amount from your future payouts
+3. **Direct invoice** — if neither of the above is sufficient, Haveaspot will issue you a direct invoice payable within **30 days**
+4. **Debt recovery** — failure to pay an invoice may result in suspension of your account and formal debt recovery action
 
 ## Why such strict consequences?
 
