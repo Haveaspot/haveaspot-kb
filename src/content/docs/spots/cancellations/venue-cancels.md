@@ -21,9 +21,10 @@ In short, a venue cancellation costs you the Booking Fee, even though you receiv
 Haveaspot will recover the outstanding Booking Fee (plus VAT) through the following steps:
 
 1. **Automatic debit** — Haveaspot will first attempt to debit the amount directly from your Stripe Connect Account
-2. **Right of set-off** — if an automatic debit is not possible, Haveaspot may withhold the amount from your future payouts
-3. **Direct invoice** — if neither of the above is sufficient, Haveaspot will issue you a direct invoice payable within **30 days**
-4. **Debt recovery** — failure to pay an invoice may result in suspension of your account and formal debt recovery action
+2. **Bank account debit** — if the refund to the Booker causes a negative balance on your Stripe account, Stripe is authorised under your Stripe Connected Account Agreement to debit your linked bank account directly to recover that shortfall
+3. **Right of set-off** — Haveaspot may also withhold any amounts owed from your future payouts
+4. **Direct invoice** — if the above steps are insufficient, Haveaspot will issue you a direct invoice payable within **30 days**
+5. **Debt recovery** — failure to pay an invoice may result in suspension of your account and formal debt recovery action
 
 ## Why such strict consequences?
 
