@@ -296,16 +296,16 @@ site-search button kbd {
   color: #021300 !important;
 }
 
-/* Homepage — hide the empty hero section entirely (title moved into search container) */
-[data-page-layout="splash"] .hero {
+/* Homepage — hide the empty hero and remove excess top space */
+[data-has-hero] .hero {
   display: none !important;
 }
 
-[data-page-layout="splash"] .content-panel {
-  padding-top: 0 !important;
+[data-has-hero] .content-panel {
+  padding-top: 0.75rem !important;
 }
 
-[data-page-layout="splash"] .sl-container > * + * {
+[data-has-hero] .sl-container > * + * {
   margin-top: 0 !important;
 }
 
