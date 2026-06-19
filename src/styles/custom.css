@@ -720,6 +720,37 @@ starlight-toc a:hover *,
   margin-top: auto !important;
 }
 
+/* Override button styles within the support banner to match About site CTA */
+.support-banner .support-btn {
+  background-color: #021300 !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 6px !important;
+  height: 44px !important;
+  padding: 0 1.5rem !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  transition: background-color 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+@media (min-width: 640px) {
+  .support-banner .support-btn {
+    width: auto !important;
+    min-width: 150px !important;
+  }
+}
+
+.support-banner .support-btn:hover,
+.support-banner .support-btn:focus,
+.support-banner .support-btn:active {
+  background-color: #0AAD0A !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
 .support-right {
   width: 100% !important;
   display: flex !important;
