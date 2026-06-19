@@ -794,17 +794,18 @@ starlight-toc a:hover *,
 /* Base Button Styles */
 .support-btn {
   display: flex !important;
-  align-items: center !important; /* Forces vertical centering of inner text */
-  justify-content: center !important; /* Keeps it horizontally centered */
+  align-items: center !important;
+  justify-content: center !important;
   vertical-align: middle !important;
-  line-height: 1 !important; /* Ensuring consistent line-height is key to perfect centering */
+  line-height: 1 !important;
   font-family: 'Poppins', sans-serif !important;
   font-weight: 600 !important;
   font-size: 0.95rem !important;
-  padding: 0.75rem 1.5rem !important; /* Adjusted for perfect vertical balance */
+  padding: 0.75rem 1.5rem !important;
   border-radius: 8px !important;
   text-decoration: none !important;
   transition: all 0.2s ease !important;
+  cursor: pointer !important;
 }
 
 /* Primary Button (Submit Ticket) */

@@ -1,0 +1,529 @@
+---
+---
+
+<!-- Modal overlay -->
+<div id="support-modal-overlay" class="sup-overlay" aria-modal="true" role="dialog" aria-labelledby="sup-modal-title" hidden>
+	<div class="sup-modal">
+
+		<button class="sup-close" id="support-modal-close" aria-label="Close">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+				<line x1="18" y1="6" x2="6" y2="18"/>
+				<line x1="6" y1="6" x2="18" y2="18"/>
+			</svg>
+		</button>
+
+		<div class="sup-form-card">
+
+			<div class="sup-intro">
+				<span class="sup-eyebrow">Support</span>
+				<h2 class="sup-heading" id="sup-modal-title">Get in Touch</h2>
+				<p class="sup-body">Can't find what you're looking for? Send us a message and we'll get back to you as soon as we can.</p>
+			</div>
+
+			<form class="sup-form" id="sup-form" novalidate>
+
+				<!-- Honeypot -->
+				<div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;opacity:0;height:0;overflow:hidden;pointer-events:none;">
+					<label for="sup_website">Website</label>
+					<input type="text" name="website" id="sup_website" tabindex="-1" autocomplete="off" />
+				</div>
+
+				<!-- Time trap -->
+				<input type="hidden" id="sup-load-time" name="load_time" value="0" />
+
+				<!-- Name -->
+				<div class="sup-field">
+					<label class="sup-label" for="sup-name">Your Name</label>
+					<input class="sup-input" type="text" id="sup-name" name="name" placeholder="Jane Smith" required />
+				</div>
+
+				<!-- Email -->
+				<div class="sup-field">
+					<label class="sup-label" for="sup-email">Email Address</label>
+					<input class="sup-input" type="email" id="sup-email" name="email" placeholder="hello@example.com" required />
+				</div>
+
+				<!-- User type -->
+				<div class="sup-field">
+					<span class="sup-label">I am a&hellip;</span>
+					<div class="sup-radios">
+						<label class="sup-radio">
+							<input type="radio" name="userType" value="booker" required />
+							<span>Booker</span>
+						</label>
+						<label class="sup-radio">
+							<input type="radio" name="userType" value="venue" />
+							<span>Venue Manager</span>
+						</label>
+					</div>
+				</div>
+
+				<!-- Message -->
+				<div class="sup-field">
+					<label class="sup-label" for="sup-message">Your Message</label>
+					<textarea class="sup-input sup-textarea" id="sup-message" name="message" placeholder="Tell us what's on your mind…" required></textarea>
+				</div>
+
+				<!-- Math CAPTCHA -->
+				<div class="sup-field">
+					<div class="sup-captcha-box">
+						<div class="sup-captcha-header">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+								<path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+							</svg>
+							<span>Security Check</span>
+						</div>
+						<p class="sup-captcha-question" id="sup-captcha-q">Loading…</p>
+						<input
+							class="sup-input sup-captcha-input"
+							type="text"
+							inputmode="numeric"
+							id="sup-captcha-answer"
+							placeholder="Enter your answer"
+							autocomplete="off"
+						/>
+					</div>
+				</div>
+
+				<!-- GDPR -->
+				<div class="sup-checks">
+					<label class="sup-check">
+						<input type="checkbox" name="gdprAgreed" required />
+						<span>I agree to my personal data being processed by Haveaspot Ltd in order to respond to my enquiry, in accordance with our <a href="https://about.haveaspot.com/legal/privacy-policy" class="sup-link" target="_blank" rel="noopener">Privacy Policy</a>. <strong>(Required)</strong></span>
+					</label>
+				</div>
+
+				<!-- Error -->
+				<div class="sup-error-box" id="sup-error" hidden>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+					</svg>
+					<span id="sup-error-msg"></span>
+				</div>
+
+				<!-- Submit -->
+				<div class="sup-submit-wrap">
+					<button type="submit" class="sup-btn" id="sup-submit">Send Message</button>
+				</div>
+
+				<!-- Success -->
+				<div class="sup-success" id="sup-success" hidden>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" aria-hidden="true"><path d="M320 576C178.6 576 64 461.4 64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576zM438 209.7C427.3 201.9 412.3 204.3 404.5 215L285.1 379.2L233 327.1C223.6 317.7 208.4 317.7 199.1 327.1C189.8 336.5 189.7 351.7 199.1 361L271.1 433C276.1 438 282.9 440.5 289.9 440C296.9 439.5 303.3 435.9 307.4 430.2L443.3 243.2C451.1 232.5 448.7 217.5 438 209.7z"/></svg>
+					<span><strong>Message sent!</strong> Thanks for getting in touch — we'll get back to you as soon as we can.</span>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>
+
+<style>
+	[hidden] { display: none !important; }
+
+	.sup-overlay {
+		position: fixed;
+		inset: 0;
+		z-index: 9999;
+		background-color: rgba(2, 19, 0, 0.6);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem;
+		box-sizing: border-box;
+		backdrop-filter: blur(2px);
+	}
+
+	.sup-modal {
+		position: relative;
+		background-color: #ffffff;
+		border-radius: 12px;
+		width: 100%;
+		max-width: 560px;
+		max-height: 90vh;
+		overflow-y: auto;
+		box-shadow: 0 20px 60px rgba(2, 19, 0, 0.2);
+	}
+
+	.sup-close {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		width: 36px;
+		height: 36px;
+		border: none;
+		background: transparent;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #6B7280;
+		border-radius: 6px;
+		transition: color 0.2s ease, background-color 0.2s ease;
+		z-index: 1;
+		padding: 0;
+	}
+
+	.sup-close:hover { color: #021300; background-color: #F9FAFB; }
+	.sup-close svg { width: 18px; height: 18px; }
+
+	.sup-form-card {
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		box-sizing: border-box;
+	}
+
+	@media (min-width: 480px) { .sup-form-card { padding: 2.5rem; } }
+
+	.sup-intro {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding-right: 2.5rem;
+	}
+
+	.sup-eyebrow {
+		display: inline-block;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: #021300;
+		font-family: 'Poppins', system-ui, sans-serif;
+	}
+
+	.sup-heading {
+		color: #021300;
+		font-size: 1.5rem;
+		font-weight: 800;
+		line-height: 1.15;
+		letter-spacing: -0.02em;
+		margin: 0;
+		font-family: 'Poppins', system-ui, sans-serif;
+	}
+
+	@media (min-width: 480px) { .sup-heading { font-size: 1.875rem; } }
+
+	.sup-body {
+		color: #374151;
+		font-size: 0.9375rem;
+		line-height: 1.6;
+		margin: 0;
+		font-family: 'Poppins', system-ui, sans-serif;
+	}
+
+	.sup-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.sup-field {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.sup-label {
+		color: #021300;
+		font-size: 0.9375rem;
+		font-weight: 500;
+		font-family: 'Poppins', system-ui, sans-serif;
+	}
+
+	.sup-input {
+		width: 100%;
+		height: 52px;
+		padding: 0 1.25rem;
+		border-radius: 8px;
+		border: 1px solid #6B7280;
+		background-color: #F9FAFB;
+		color: #021300;
+		font-size: 0.9375rem;
+		font-family: 'Poppins', system-ui, sans-serif;
+		box-sizing: border-box;
+		outline: none;
+		transition: border-color 0.2s ease;
+		appearance: none;
+	}
+
+	.sup-input::placeholder { color: #6B7280; }
+	.sup-input:focus { border-color: #021300; }
+
+	.sup-textarea {
+		height: auto;
+		min-height: 120px;
+		padding: 0.875rem 1.25rem;
+		resize: vertical;
+		line-height: 1.625;
+	}
+
+	.sup-radios {
+		display: flex;
+		gap: 1.5rem;
+	}
+
+	.sup-radio {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		cursor: pointer;
+		color: #374151;
+		font-size: 0.9375rem;
+		font-family: 'Poppins', system-ui, sans-serif;
+	}
+
+	.sup-radio input[type="radio"] {
+		width: 18px;
+		height: 18px;
+		flex-shrink: 0;
+		accent-color: #021300;
+		cursor: pointer;
+	}
+
+	.sup-captcha-box {
+		border: 2px solid #021300;
+		border-radius: 8px;
+		padding: 1rem 1.25rem;
+		background-color: #EDF5FF;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.sup-captcha-header {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: #021300;
+		font-size: 0.8125rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-family: 'Poppins', system-ui, sans-serif;
+	}
+
+	.sup-captcha-header svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+	.sup-captcha-question {
+		color: #021300;
+		font-size: 1rem;
+		font-weight: 600;
+		margin: 0;
+		font-family: 'Poppins', system-ui, sans-serif;
+	}
+
+	.sup-captcha-input { background-color: #ffffff; }
+
+	.sup-checks { display: flex; flex-direction: column; gap: 0.75rem; }
+
+	.sup-check {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+		cursor: pointer;
+	}
+
+	.sup-check input[type="checkbox"] {
+		margin-top: 3px;
+		width: 16px;
+		height: 16px;
+		flex-shrink: 0;
+		accent-color: #021300;
+		cursor: pointer;
+	}
+
+	.sup-check span {
+		color: #374151;
+		font-size: 0.875rem;
+		line-height: 1.5;
+		font-family: 'Poppins', system-ui, sans-serif;
+	}
+
+	.sup-check strong { color: #021300; }
+
+	.sup-link { color: #021300; font-weight: 700; text-decoration: underline; }
+	.sup-link:hover { color: #0AAD0A; }
+
+	.sup-error-box {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.625rem;
+		background-color: #fef2f2;
+		border: 1px solid #fca5a5;
+		border-radius: 8px;
+		padding: 0.75rem 1rem;
+		color: #991b1b;
+		font-size: 0.875rem;
+		font-family: 'Poppins', system-ui, sans-serif;
+	}
+
+	.sup-error-box svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 1px; }
+
+	.sup-submit-wrap { padding-top: 0.25rem; }
+
+	.sup-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #021300;
+		color: #ffffff;
+		border: none;
+		border-radius: 6px;
+		height: 44px;
+		width: 100%;
+		font-size: 1rem;
+		font-weight: 600;
+		font-family: 'Poppins', system-ui, sans-serif;
+		cursor: pointer;
+		transition: background-color 0.2s ease;
+		box-sizing: border-box;
+	}
+
+	@media (min-width: 480px) { .sup-btn { width: 160px; } }
+
+	.sup-btn:hover:not(:disabled) { background-color: #0AAD0A; }
+	.sup-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+	.sup-success {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.625rem;
+		background-color: #f0fdf4;
+		border: 1px solid #86efac;
+		border-radius: 8px;
+		padding: 0.75rem 1rem;
+		color: #166534;
+		font-size: 0.875rem;
+		font-family: 'Poppins', system-ui, sans-serif;
+	}
+
+	.sup-success svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 1px; fill: #16a34a; }
+</style>
+
+<script>
+	(function () {
+		const overlay = document.getElementById('support-modal-overlay') as HTMLElement;
+		const openBtn = document.getElementById('open-support-modal');
+		const closeBtn = document.getElementById('support-modal-close');
+
+		function openModal() {
+			overlay.hidden = false;
+			document.body.style.overflow = 'hidden';
+			// Set load time when modal opens
+			const loadTimeEl = document.getElementById('sup-load-time') as HTMLInputElement;
+			if (loadTimeEl && loadTimeEl.value === '0') loadTimeEl.value = String(Date.now());
+		}
+
+		function closeModal() {
+			overlay.hidden = true;
+			document.body.style.overflow = '';
+		}
+
+		openBtn?.addEventListener('click', openModal);
+		closeBtn?.addEventListener('click', closeModal);
+
+		// Close on overlay click (outside modal)
+		overlay?.addEventListener('click', (e) => {
+			if (e.target === overlay) closeModal();
+		});
+
+		// Close on Escape key
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && !overlay.hidden) closeModal();
+		});
+
+		// CAPTCHA
+		const a = Math.floor(Math.random() * 9) + 1;
+		const b = Math.floor(Math.random() * 9) + 1;
+		const questionEl = document.getElementById('sup-captcha-q');
+		if (questionEl) questionEl.textContent = `What is ${a} + ${b}?`;
+
+		// Form submission
+		const form = document.getElementById('sup-form') as HTMLFormElement;
+		const submitBtn = document.getElementById('sup-submit') as HTMLButtonElement;
+		const errorBox = document.getElementById('sup-error') as HTMLElement;
+		const errorMsg = document.getElementById('sup-error-msg') as HTMLElement;
+		const successEl = document.getElementById('sup-success') as HTMLElement;
+
+		function showError(msg: string) {
+			errorMsg.textContent = msg;
+			errorBox.hidden = false;
+			submitBtn.disabled = false;
+			submitBtn.textContent = 'Send Message';
+		}
+
+		function hideError() {
+			errorBox.hidden = true;
+			errorMsg.textContent = '';
+		}
+
+		form?.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			hideError();
+
+			// Validate CAPTCHA
+			const answerEl = document.getElementById('sup-captcha-answer') as HTMLInputElement;
+			const userAnswer = parseInt(answerEl.value.trim(), 10);
+			if (isNaN(userAnswer) || userAnswer !== a + b) {
+				showError('Incorrect answer to the security check. Please try again.');
+				answerEl.value = '';
+				return;
+			}
+
+			// Validate user type
+			const userTypeEl = form.querySelector('[name="userType"]:checked') as HTMLInputElement;
+			if (!userTypeEl) {
+				showError('Please select whether you are a Booker or Venue Manager.');
+				return;
+			}
+
+			// Validate GDPR
+			const gdprEl = form.querySelector('[name="gdprAgreed"]') as HTMLInputElement;
+			if (!gdprEl.checked) {
+				showError('Please agree to the data processing terms before submitting.');
+				return;
+			}
+
+			const loadTime = parseInt((document.getElementById('sup-load-time') as HTMLInputElement).value, 10);
+			const elapsed = Date.now() - loadTime;
+
+			const payload = {
+				name:     (document.getElementById('sup-name') as HTMLInputElement).value.trim(),
+				email:    (document.getElementById('sup-email') as HTMLInputElement).value.trim(),
+				userType: userTypeEl.value,
+				message:  (document.getElementById('sup-message') as HTMLTextAreaElement).value.trim(),
+				honeypot: (document.getElementById('sup_website') as HTMLInputElement).value,
+				elapsed,
+			};
+
+			submitBtn.disabled = true;
+			submitBtn.textContent = 'Sending…';
+
+			try {
+				const res = await fetch('/api/submit-support', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(payload),
+				});
+
+				const json = await res.json();
+
+				if (res.ok && json.ok) {
+					successEl.hidden = false;
+					submitBtn.disabled = true;
+					submitBtn.textContent = 'Sent';
+					form.querySelectorAll('input, textarea, select').forEach((el: Element) => {
+						(el as HTMLInputElement | HTMLTextAreaElement).disabled = true;
+					});
+				} else {
+					showError(json.error ?? 'Something went wrong. Please try again.');
+				}
+			} catch {
+				showError('Network error. Please check your connection and try again.');
+			}
+		});
+	})();
+</script>
