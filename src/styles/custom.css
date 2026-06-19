@@ -681,9 +681,9 @@ starlight-toc a:hover *,
 
 .support-banner .support-heading {
   font-family: 'Poppins', sans-serif !important;
-  font-size: 2.5rem !important;
+  font-size: 2rem !important;
   font-weight: 800 !important;
-  line-height: 0.95 !important;
+  line-height: 1.1 !important;
   letter-spacing: -0.02em !important;
   color: #021300 !important;
   margin: 0 !important;
@@ -692,13 +692,13 @@ starlight-toc a:hover *,
 
 @media (min-width: 768px) {
   .support-banner .support-heading {
-    font-size: 3.5rem !important;
+    font-size: 2.5rem !important;
   }
 }
 
 @media (min-width: 1024px) {
   .support-banner .support-heading {
-    font-size: clamp(3rem, 4.5vw, 4.5rem) !important;
+    font-size: clamp(2rem, 3vw, 3rem) !important;
   }
 }
 
