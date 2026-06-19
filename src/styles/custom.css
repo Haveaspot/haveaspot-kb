@@ -541,9 +541,8 @@ starlight-toc a:hover *,
 .featured-grid .sl-link-card a {
   background-color: #F9FAFB !important;
   background: #F9FAFB !important;
-  /* Overrides Starlight's default background gradients */
   border-radius: 8px !important;
-  border: 1px solid transparent !important;
+  border: 1px solid #021300 !important;
   transition: border-color 0.2s ease;
 }
 
