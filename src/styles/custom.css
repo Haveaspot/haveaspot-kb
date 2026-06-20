@@ -1250,3 +1250,25 @@ body site-search button.pagefind-ui__search-clear:active {
   opacity: 1 !important;
   background-image: none !important; /* Kills Starlight's default hover gradients */
 }
+
+/* =========================================
+   SUPPORT FORM MODAL — GLOBAL OVERRIDES
+   (scoped component styles lose to Starlight's
+   .sl-markdown-content a rules, so we win here)
+   ========================================= */
+#support-modal-overlay a {
+  color: #021300 !important;
+  text-decoration: underline !important;
+}
+#support-modal-overlay a:hover {
+  color: #0AAD0A !important;
+}
+#support-modal-overlay .sup-heading {
+  font-weight: 700 !important;
+}
+#support-modal-overlay .sup-captcha-header span {
+  font-weight: 700 !important;
+}
+#support-modal-overlay .sup-captcha-question {
+  font-weight: 700 !important;
+}
