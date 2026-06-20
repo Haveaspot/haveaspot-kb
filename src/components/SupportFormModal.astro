@@ -174,6 +174,12 @@
 		padding: 0;
 	}
 
+	@media (max-width: 539px) {
+		.sup-close {
+			top: 3.75rem;
+		}
+	}
+
 	.sup-close:hover { color: #021300; background-color: #F9FAFB; }
 	.sup-close svg { width: 18px; height: 18px; }
 
@@ -402,6 +408,13 @@
 <script>
 	(function () {
 		const overlay = document.getElementById('support-modal-overlay') as HTMLElement;
+
+		// Teleport to <body> so the overlay escapes Starlight's stacking context
+		// and sits above the fixed navbar (z-index 1000)
+		if (overlay && overlay.parentElement !== document.body) {
+			document.body.appendChild(overlay);
+		}
+
 		const openBtn = document.getElementById('open-support-modal');
 		const closeBtn = document.getElementById('support-modal-close');
 
