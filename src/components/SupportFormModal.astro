@@ -118,11 +118,11 @@
 
 	.sup-overlay {
 		position: fixed;
-		top: 4rem; /* sit below the 64px navbar on mobile */
+		top: 4rem;
 		right: 0;
 		bottom: 0;
 		left: 0;
-		z-index: 9999;
+		z-index: 99999;
 		display: flex;
 		align-items: stretch;
 		justify-content: center;
@@ -407,10 +407,31 @@
 <script>
 	(function () {
 		const overlay = document.getElementById('support-modal-overlay') as HTMLElement;
+
+		// Teleport to <body> to escape Starlight's stacking context
+		if (overlay && overlay.parentElement !== document.body) {
+			document.body.appendChild(overlay);
+		}
+
+		// On mobile, pin the overlay to start exactly where the navbar ends
+		function positionOverlay() {
+			if (window.innerWidth < 540) {
+				const header = document.querySelector('header');
+				const navBottom = header ? header.getBoundingClientRect().bottom : 64;
+				overlay.style.top = navBottom + 'px';
+			} else {
+				overlay.style.top = '';
+			}
+		}
+
+		positionOverlay();
+		window.addEventListener('resize', positionOverlay);
+
 		const openBtn = document.getElementById('open-support-modal');
 		const closeBtn = document.getElementById('support-modal-close');
 
 		function openModal() {
+			positionOverlay();
 			overlay.hidden = false;
 			document.body.style.overflow = 'hidden';
 			// Set load time when modal opens
