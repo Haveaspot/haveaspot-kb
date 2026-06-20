@@ -118,7 +118,10 @@
 
 	.sup-overlay {
 		position: fixed;
-		inset: 0;
+		top: 4rem; /* sit below the 64px navbar on mobile */
+		right: 0;
+		bottom: 0;
+		left: 0;
 		z-index: 9999;
 		background-color: rgba(2, 19, 0, 0.6);
 		display: flex;
@@ -131,6 +134,7 @@
 
 	@media (min-width: 540px) {
 		.sup-overlay {
+			top: 0;
 			align-items: center;
 			padding: 1rem;
 		}
@@ -142,7 +146,7 @@
 		border-radius: 0;
 		width: 100%;
 		max-width: 560px;
-		max-height: 92vh;
+		max-height: 100%;
 		overflow-y: auto;
 		box-shadow: 0 -8px 40px rgba(2, 19, 0, 0.15);
 	}
@@ -174,17 +178,12 @@
 		padding: 0;
 	}
 
-	@media (max-width: 539px) {
-		.sup-close {
-			top: 3.75rem;
-		}
-	}
 
 	.sup-close:hover { color: #021300; background-color: #F9FAFB; }
 	.sup-close svg { width: 18px; height: 18px; }
 
 	.sup-form-card {
-		padding: 3.5rem 1.25rem 1.5rem;
+		padding: 1.25rem 1.25rem 1.5rem;
 		display: flex;
 		flex-direction: column;
 		gap: 1.25rem;
@@ -408,13 +407,6 @@
 <script>
 	(function () {
 		const overlay = document.getElementById('support-modal-overlay') as HTMLElement;
-
-		// Teleport to <body> so the overlay escapes Starlight's stacking context
-		// and sits above the fixed navbar (z-index 1000)
-		if (overlay && overlay.parentElement !== document.body) {
-			document.body.appendChild(overlay);
-		}
-
 		const openBtn = document.getElementById('open-support-modal');
 		const closeBtn = document.getElementById('support-modal-close');
 
