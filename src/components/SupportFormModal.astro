@@ -122,30 +122,45 @@
 		z-index: 9999;
 		background-color: rgba(2, 19, 0, 0.6);
 		display: flex;
-		align-items: center;
+		align-items: flex-end;
 		justify-content: center;
-		padding: 1rem;
+		padding: 0;
 		box-sizing: border-box;
 		backdrop-filter: blur(2px);
+	}
+
+	@media (min-width: 540px) {
+		.sup-overlay {
+			align-items: center;
+			padding: 1rem;
+		}
 	}
 
 	.sup-modal {
 		position: relative;
 		background-color: #ffffff;
-		border-radius: 12px;
+		border-radius: 16px 16px 0 0;
 		width: 100%;
 		max-width: 560px;
-		max-height: 90vh;
+		max-height: 92vh;
 		overflow-y: auto;
-		box-shadow: 0 20px 60px rgba(2, 19, 0, 0.2);
+		box-shadow: 0 -8px 40px rgba(2, 19, 0, 0.15);
+	}
+
+	@media (min-width: 540px) {
+		.sup-modal {
+			border-radius: 12px;
+			max-height: 90vh;
+			box-shadow: 0 20px 60px rgba(2, 19, 0, 0.2);
+		}
 	}
 
 	.sup-close {
 		position: absolute;
 		top: 1rem;
 		right: 1rem;
-		width: 36px;
-		height: 36px;
+		width: 44px;
+		height: 44px;
 		border: none;
 		background: transparent;
 		cursor: pointer;
@@ -153,7 +168,7 @@
 		align-items: center;
 		justify-content: center;
 		color: #6B7280;
-		border-radius: 6px;
+		border-radius: 8px;
 		transition: color 0.2s ease, background-color 0.2s ease;
 		z-index: 1;
 		padding: 0;
@@ -163,14 +178,14 @@
 	.sup-close svg { width: 18px; height: 18px; }
 
 	.sup-form-card {
-		padding: 2rem;
+		padding: 1.25rem;
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 1.25rem;
 		box-sizing: border-box;
 	}
 
-	@media (min-width: 480px) { .sup-form-card { padding: 2.5rem; } }
+	@media (min-width: 480px) { .sup-form-card { padding: 2.5rem; gap: 1.5rem; } }
 
 	.sup-intro {
 		display: flex;
