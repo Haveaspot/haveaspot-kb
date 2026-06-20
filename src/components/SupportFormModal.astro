@@ -45,17 +45,12 @@
 
 				<!-- User type -->
 				<div class="sup-field">
-					<span class="sup-label">I am a&hellip;</span>
-					<div class="sup-radios">
-						<label class="sup-radio">
-							<input type="radio" name="userType" value="booker" required />
-							<span>Booker</span>
-						</label>
-						<label class="sup-radio">
-							<input type="radio" name="userType" value="venue" />
-							<span>Venue Manager</span>
-						</label>
-					</div>
+					<label class="sup-label" for="sup-user-type">I am a&hellip;</label>
+					<select class="sup-input sup-select" id="sup-user-type" name="userType" required>
+						<option value="" disabled selected>Please select&hellip;</option>
+						<option value="booker">Booker</option>
+						<option value="venue">Venue Manager</option>
+					</select>
 				</div>
 
 				<!-- Message -->
@@ -197,7 +192,7 @@
 	.sup-heading {
 		color: #021300;
 		font-size: 1.5rem;
-		font-weight: 800;
+		font-weight: 700;
 		line-height: 1.15;
 		letter-spacing: -0.02em;
 		margin: 0;
@@ -260,26 +255,12 @@
 		line-height: 1.625;
 	}
 
-	.sup-radios {
-		display: flex;
-		gap: 1.5rem;
-	}
-
-	.sup-radio {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		cursor: pointer;
-		color: #374151;
-		font-size: 0.9375rem;
-		font-family: 'Poppins', system-ui, sans-serif;
-	}
-
-	.sup-radio input[type="radio"] {
-		width: 18px;
-		height: 18px;
-		flex-shrink: 0;
-		accent-color: #021300;
+	.sup-select {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: right 1rem center;
+		background-size: 16px;
+		padding-right: 2.5rem;
 		cursor: pointer;
 	}
 
@@ -310,7 +291,7 @@
 	.sup-captcha-question {
 		color: #021300;
 		font-size: 1rem;
-		font-weight: 600;
+		font-weight: 700;
 		margin: 0;
 		font-family: 'Poppins', system-ui, sans-serif;
 	}
@@ -344,8 +325,8 @@
 
 	.sup-check strong { color: #021300; }
 
-	.sup-link { color: #021300; font-weight: 700; text-decoration: underline; }
-	.sup-link:hover { color: #0AAD0A; }
+	.sup-link { color: #021300 !important; font-weight: 700; text-decoration: underline; }
+	.sup-link:hover { color: #0AAD0A !important; }
 
 	.sup-error-box {
 		display: flex;
@@ -474,8 +455,8 @@
 			}
 
 			// Validate user type
-			const userTypeEl = form.querySelector('[name="userType"]:checked') as HTMLInputElement;
-			if (!userTypeEl) {
+			const userTypeEl = document.getElementById('sup-user-type') as HTMLSelectElement;
+			if (!userTypeEl.value) {
 				showError('Please select whether you are a Booker or Venue Manager.');
 				return;
 			}
@@ -493,7 +474,7 @@
 			const payload = {
 				name:     (document.getElementById('sup-name') as HTMLInputElement).value.trim(),
 				email:    (document.getElementById('sup-email') as HTMLInputElement).value.trim(),
-				userType: userTypeEl.value,
+				userType: (document.getElementById('sup-user-type') as HTMLSelectElement).value,
 				message:  (document.getElementById('sup-message') as HTMLTextAreaElement).value.trim(),
 				honeypot: (document.getElementById('sup_website') as HTMLInputElement).value,
 				elapsed,
