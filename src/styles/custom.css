@@ -1272,3 +1272,6 @@ body site-search button.pagefind-ui__search-clear:active {
 #support-modal-overlay .sup-captcha-question {
   font-weight: 700 !important;
 }
+#support-modal-overlay .sup-label {
+  font-weight: 700 !important;
+}
