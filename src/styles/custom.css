@@ -1306,12 +1306,12 @@ body site-search button.pagefind-ui__search-clear:active {
 #support-modal-overlay input[type="checkbox"]:checked::after {
   content: '' !important;
   position: absolute !important;
-  left: 3px !important;
-  top: 0px !important;
+  left: 50% !important;
+  top: 45% !important;
   width: 4px !important;
   height: 8px !important;
   border: 2px solid #ffffff !important;
   border-top: none !important;
   border-left: none !important;
-  transform: rotate(45deg) !important;
+  transform: translate(-50%, -50%) rotate(45deg) !important;
 }
