@@ -242,12 +242,18 @@ a[aria-current="page"]:focus-visible,
   border: none !important;
 }
 
-/* Active links and focus states */
-a:focus,
-button:focus,
-input:focus {
+/* Focus rings for keyboard navigation only — not triggered by mouse clicks */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
   outline: 2px solid #0AAD0A !important;
   outline-offset: 2px;
+}
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .sl-markdown-content a:focus,
