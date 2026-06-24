@@ -2,6 +2,7 @@
 @import "@fontsource/poppins/300.css";
 @import "@fontsource/poppins/400.css";
 @import "@fontsource/poppins/700.css";
+@import "@fontsource/poppins/800.css";
 
 
 :root,
@@ -17,7 +18,7 @@
   --sl-font: 'Poppins', sans-serif;
 
   /* Text Colors */
-  --sl-color-text: #333333;
+  --sl-color-text: #021300;
   --sl-color-white: #021300;
   --sl-color-black: #021300;
   --sl-color-gray-1: #333333;
@@ -25,10 +26,10 @@
   --sl-color-gray-3: #666666;
 
   /* Accent Colors */
-  --sl-color-accent: #0FED27;
-  --sl-color-accent-high: #0FED27;
-  --sl-color-accent-low: rgba(15, 237, 39, 0.1);
-  --sl-color-text-accent: #0FED27;
+  --sl-color-accent: #0AAD0A;
+  --sl-color-accent-high: #0AAD0A;
+  --sl-color-accent-low: rgba(10, 173, 10, 0.1);
+  --sl-color-text-accent: #0AAD0A;
 
   /* Borders */
   --sl-color-hairline: #FAFAFA;
@@ -39,7 +40,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #FFFFFF;
-  color: #333333;
+  color: #021300;
 }
 
 /* Heading anchor link icon — smaller icon, neater gap */
@@ -78,6 +79,13 @@ h6,
 .sl-markdown-content h6 {
   color: #021300 !important;
   font-weight: 700;
+}
+
+h1,
+h2,
+.sl-markdown-content h1,
+.sl-markdown-content h2 {
+  font-weight: 800;
 }
 
 /* In-article list styles (Tailwind resets these by default) */
@@ -194,7 +202,7 @@ sidebar-drawer {
 /* Sidebar Active Link Styles */
 a[aria-current="page"] {
   background-color: #021300 !important;
-  color: #0FED27 !important;
+  color: #0AAD0A !important;
   font-weight: 400 !important;
 }
 
@@ -1012,10 +1020,8 @@ starlight-toc a:hover *,
 
   /* 5. Brand hover effect */
   mobile-starlight-toc nav a:hover {
-    color: #0FED27 !important;
-    /* Neon green text on hover */
+    color: #0AAD0A !important;
     background-color: #F9FAFB !important;
-    /* Very subtle light background on hover */
   }
 }
 
@@ -1045,21 +1051,18 @@ starlight-toc a:hover *,
     /* Light grey dividers */
   }
 
-  /* 4. Active page indicator (Dark green text, Neon green accent border) */
+  /* 4. Active page indicator */
   mobile-starlight-nav a[aria-current="page"] {
     color: #021300 !important;
     font-weight: 700 !important;
     background-color: #F9FAFB !important;
-    /* Subtle highlight for active item */
-    border-inline-start-color: #0FED27 !important;
-    /* Neon green left border */
+    border-inline-start-color: #0AAD0A !important;
   }
 
   /* 5. Brand hover states for menu items */
   mobile-starlight-nav a:hover,
   mobile-starlight-nav summary:hover {
-    color: #0FED27 !important;
-    /* Neon green text on hover */
+    color: #0AAD0A !important;
     background-color: #F9FAFB !important;
   }
 }
