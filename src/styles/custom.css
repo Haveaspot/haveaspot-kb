@@ -202,7 +202,7 @@ sidebar-drawer {
 /* Sidebar Active Link Styles */
 a[aria-current="page"] {
   background-color: #021300 !important;
-  color: #0AAD0A !important;
+  color: #FFFFFF !important;
   font-weight: 400 !important;
 }
 
