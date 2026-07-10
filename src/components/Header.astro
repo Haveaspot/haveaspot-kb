@@ -145,8 +145,8 @@ const shouldRenderSearch =
 	}
 
 	.has-logo-wrap .site-title img {
-		height: 38px !important;
-		width: 170px !important;
+		height: 32px !important;
+		width: auto !important;
 		display: block !important;
 		object-fit: contain !important;
 		object-position: left center !important;
@@ -307,21 +307,29 @@ const shouldRenderSearch =
 	   ══════════════════════════════════════════════════════════════ */
 	@media (max-width: 1024px) {
 
-		/* Header inner needs relative positioning for absolute logo */
+		/* Header inner needs relative positioning for absolute search icon */
 		.has-header-inner {
 			position: relative !important;
+			justify-content: flex-start !important;
 		}
 
 		/* ── Hamburger ──────────────────────────────────────────── */
 		.mobile-toggle {
 			display: flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+			width: 44px !important;
+			height: 44px !important;
 			background: transparent !important;
 			border: none !important;
+			border-radius: 6px !important;
 			outline: none !important;
 			box-shadow: none !important;
 			color: #021300 !important;
 			cursor: pointer !important;
-			padding: 0.5rem 0 !important;
+			padding: 0 !important;
+			margin-left: -10px !important;
+			margin-right: 0.25rem !important;
 			flex-shrink: 0 !important;
 		}
 
@@ -331,11 +339,11 @@ const shouldRenderSearch =
 			box-shadow: none !important;
 		}
 
-		/* ── Logo: absolutely centered ──────────────────────────── */
+		/* ── Logo: sits next to the hamburger ────────────────────── */
 		.has-logo-wrap {
-			position: absolute !important;
-			left: 50% !important;
-			transform: translateX(-50%) !important;
+			position: static !important;
+			left: auto !important;
+			transform: none !important;
 			margin-right: 0 !important;
 		}
 
