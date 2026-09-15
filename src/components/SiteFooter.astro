@@ -30,6 +30,7 @@ const links = {
 	cookiePolicy: "https://about.haveaspot.com/legal/cookie-policy",
 	venueAgreement: "https://about.haveaspot.com/legal/venue-service-agreement",
 	bookerAgreement: "https://about.haveaspot.com/legal/booker-terms-of-service",
+	adrComplaints: "https://about.haveaspot.com/legal/booker-terms-of-service#102-adr-for-consumer-disputes",
 
 	// Corporate Info
 	vatNumber: "GB 123 4567 89",
@@ -137,13 +138,15 @@ const links = {
 		<div class="footer-legal-links">
 			<a href={links.termsOfUse} target="_blank" rel="noopener noreferrer">Website Terms of Use</a>
 			<span class="legal-separator">|</span>
-			<a href={links.privacyPolicy} target="_blank" rel="noopener noreferrer">Platform Privacy Policy</a>
+			<a href={links.privacyPolicy} target="_blank" rel="noopener noreferrer">Privacy Policy</a>
 			<span class="legal-separator">|</span>
-			<a href={links.cookiePolicy} target="_blank" rel="noopener noreferrer">Cookie Policy</a>
+			<a href={links.cookiePolicy} target="_blank" rel="noopener noreferrer">Cookies Policy</a>
 			<span class="legal-separator">|</span>
 			<a href={links.venueAgreement} target="_blank" rel="noopener noreferrer">Venue Service Agreement</a>
 			<span class="legal-separator">|</span>
-			<a href={links.bookerAgreement} target="_blank" rel="noopener noreferrer">Booker Service Agreement</a>
+			<a href={links.bookerAgreement} target="_blank" rel="noopener noreferrer">Booker Terms of Service</a>
+			<span class="legal-separator">|</span>
+			<a href={links.adrComplaints} target="_blank" rel="noopener noreferrer">ADR / Complaints</a>
 		</div>
 
 		<div class="footer-bottom-content">
@@ -176,10 +179,12 @@ const links = {
 	.has-footer {
 		width: 100% !important;
 		background-color: #ffffff !important;
-		border-top: 1px solid #e5e7eb !important;
+		border-top: 1px solid #021300 !important;
 		font-family: "Poppins", system-ui, sans-serif !important;
 		color: #021300 !important;
-		padding-top: 4rem !important;
+		padding-top: 3rem !important;
+		/* Starlight sets body line-height 1.75; reset so heights match the About and blog footers */
+		line-height: normal !important;
 		display: block !important;
 		flex-shrink: 0 !important;
 	}
@@ -193,6 +198,8 @@ const links = {
 		width: 100% !important;
 		padding: 0 1rem 3rem 1rem !important;
 		box-sizing: border-box !important;
+		/* Matches platform footer: 48px padding either side of 189.58px content */
+		min-height: calc(189.58px + 3rem) !important;
 	}
 
 	/* RIGHT COLUMN CONTAINER: Enforces true side-by-side alignment */
@@ -266,6 +273,7 @@ const links = {
 	.footer-heading {
 		font-size: 1.1rem !important;
 		font-weight: 600 !important;
+		line-height: 1.2 !important;
 		margin-bottom: 1.5rem !important;
 		color: #021300 !important;
 	}
@@ -294,17 +302,18 @@ const links = {
 
 	/* Bottom Copyright + Legal Master Layout Container */
 	.footer-bottom {
-		border-top: 1px solid #e5e7eb !important;
+		border-top: 1px solid rgba(2, 19, 0, 0.1) !important;
 		width: 100% !important;
-		padding: 2rem 1rem !important;
+		padding: 0 !important;
 		box-sizing: border-box !important;
 		font-size: 0.85rem !important;
+		line-height: 1.5 !important;
 		color: #021300 !important;
 		display: flex !important;
 		flex-direction: column !important;
 		justify-content: flex-start !important;
 		align-items: flex-start !important;
-		gap: 1.5rem !important;
+		gap: 0 !important;
 	}
 
 	/* Positioned menu links at the top of the stack and left-aligned */
@@ -316,6 +325,8 @@ const links = {
 		gap: 0.75rem !important;
 		width: 100% !important;
 		flex-wrap: wrap !important;
+		padding-block: 1.5rem !important;
+		border-bottom: 1px solid rgba(2, 19, 0, 0.1) !important;
 	}
 
 	.footer-legal-links a {
@@ -330,7 +341,7 @@ const links = {
 	}
 
 	.legal-separator {
-		color: #021300 !important;
+		color: rgba(2, 19, 0, 0.4) !important;
 		user-select: none !important;
 	}
 
@@ -340,6 +351,16 @@ const links = {
 		flex-direction: column !important;
 		gap: 0.5rem !important;
 		width: 100% !important;
+		padding-block: 1.25rem !important;
+		/* Matches platform copyright band height (87.58px including divider) */
+		min-height: 86.58px !important;
+	}
+
+	/* Dividing lines run full screen width; text stays aligned with the footer logo */
+	.footer-legal-links,
+	.footer-bottom-content {
+		box-sizing: border-box !important;
+		padding-inline: 1rem !important;
 	}
 
 	.copyright-text {
@@ -369,6 +390,7 @@ const links = {
 			flex-direction: column !important;
 			gap: 2.5rem !important;
 			padding: 0 1rem 2rem 1rem !important;
+			min-height: 0 !important;
 		}
 
 		.footer-right-group {
@@ -383,8 +405,14 @@ const links = {
 		}
 
 		.footer-bottom {
-			padding: 1.5rem 1rem !important;
+			padding: 1.5rem 0 !important;
 			gap: 1.25rem !important;
+			line-height: normal !important;
+		}
+
+		.footer-bottom-content {
+			padding-block: 0 !important;
+			min-height: 0 !important;
 		}
 
 		.footer-legal-links {
@@ -392,6 +420,8 @@ const links = {
 			align-items: flex-start !important;
 			gap: 0.85rem !important;
 			width: 100% !important;
+			padding-top: 0 !important;
+			padding-bottom: 1.25rem !important;
 		}
 
 		.legal-separator {
