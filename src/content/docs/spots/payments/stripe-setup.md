@@ -34,4 +34,4 @@ You will be directed to Stripe's own platform, where you will need to:
 
 ## Once your account is connected
 
-Once verified, your Stripe account will be ready to receive payouts. Your first payout typically arrives around **7 days** after a booking payment is made, with subsequent payouts arriving within **2–7 days**. These timings are set by Stripe and may vary. See [When and How Will I Get Paid?](/spots/payments/payouts/) for more detail.
+Once verified, your Stripe account will be ready to receive payouts. Funds typically become available around **7 days** after a booking is confirmed, and your balance is paid out to your bank account every **30 days** — though you can release a payout yourself at any time from your Stripe dashboard. These timings are estimates and may vary. See [When and How Will I Get Paid?](/spots/payments/payouts/) for more detail.
