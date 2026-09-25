@@ -53,6 +53,12 @@
 					</select>
 				</div>
 
+				<!-- Venue — label adapts to which side of the platform they said they're on -->
+				<div class="sup-field">
+					<label class="sup-label" for="sup-venue" id="sup-venue-label">Which venue is this about?</label>
+					<input class="sup-input" type="text" id="sup-venue" name="venueName" placeholder="e.g. Staunton Village Hall" />
+				</div>
+
 				<!-- Message -->
 				<div class="sup-field">
 					<label class="sup-label" for="sup-message">Describe Your Issue</label>
@@ -463,6 +469,20 @@
 		const questionEl = document.getElementById('sup-captcha-q');
 		if (questionEl) questionEl.textContent = `What is ${a} + ${b}?`;
 
+		// The venue question adapts to which side of the platform they said
+		// they're on, so it asks the right thing rather than a generic one —
+		// "which venue do you manage" reads very differently from "which venue
+		// have you booked".
+		const venueLabelEl = document.getElementById('sup-venue-label');
+		const VENUE_LABELS: Record<string, string> = {
+			venue: 'Which venue do you manage?',
+			booker: 'Which venue have you booked?',
+		};
+		document.getElementById('sup-user-type')?.addEventListener('change', (e) => {
+			const value = (e.target as HTMLSelectElement).value;
+			if (venueLabelEl) venueLabelEl.textContent = VENUE_LABELS[value] ?? 'Which venue is this about?';
+		});
+
 		// Form submission
 		const form = document.getElementById('sup-form') as HTMLFormElement;
 		const submitBtn = document.getElementById('sup-submit') as HTMLButtonElement;
@@ -513,11 +533,12 @@
 			const elapsed = Date.now() - loadTime;
 
 			const payload = {
-				name:     (document.getElementById('sup-name') as HTMLInputElement).value.trim(),
-				email:    (document.getElementById('sup-email') as HTMLInputElement).value.trim(),
-				userType: (document.getElementById('sup-user-type') as HTMLSelectElement).value,
-				message:  (document.getElementById('sup-message') as HTMLTextAreaElement).value.trim(),
-				honeypot: (document.getElementById('sup_website') as HTMLInputElement).value,
+				name:      (document.getElementById('sup-name') as HTMLInputElement).value.trim(),
+				email:     (document.getElementById('sup-email') as HTMLInputElement).value.trim(),
+				userType:  (document.getElementById('sup-user-type') as HTMLSelectElement).value,
+				venueName: (document.getElementById('sup-venue') as HTMLInputElement).value.trim(),
+				message:   (document.getElementById('sup-message') as HTMLTextAreaElement).value.trim(),
+				honeypot:  (document.getElementById('sup_website') as HTMLInputElement).value,
 				elapsed,
 			};
 
