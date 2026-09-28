@@ -63,6 +63,7 @@
 				<div class="sup-field">
 					<label class="sup-label" for="sup-message">Describe Your Issue</label>
 					<textarea class="sup-input sup-textarea" id="sup-message" name="message" placeholder="Please describe your issue in as much detail as possible…" required></textarea>
+					<p class="sup-hint">Please don't include card details, bank details or passwords. We'll never ask you for them.</p>
 				</div>
 
 				<!-- Math CAPTCHA -->
@@ -268,6 +269,14 @@
 		outline: none;
 		transition: border-color 0.2s ease;
 		appearance: none;
+	}
+
+	.sup-hint {
+		margin: 0;
+		color: #6B7280;
+		font-size: 0.8125rem;
+		font-weight: 300;
+		font-family: 'Poppins', system-ui, sans-serif;
 	}
 
 	.sup-input::placeholder { color: #6B7280; }
