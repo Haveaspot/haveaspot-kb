@@ -28,6 +28,15 @@ export default defineConfig({
                     },
                 },
                 {
+                    // Live chat (CRM: Live chat). The CRM decides whether the bubble shows: the switch,
+                    // opening hours and who is available are all set there, so this never needs changing.
+                    tag: 'script',
+                    attrs: {
+                        src: 'https://api.haveaspot.com/v1/chat.js',
+                        defer: true,
+                    },
+                },
+                {
                     tag: 'meta',
                     attrs: {
                         name: 'format-detection',
