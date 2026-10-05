@@ -17,15 +17,15 @@ function escapeHtml(value: string): string {
 }
 
 /**
- * Logs the enquiry into the CRM's support tickets, in addition to the email
- * sent below — not instead of it. See src/pages/api/support/tickets.ts in
- * HAS-CRM for what receives this.
+ * Logs the enquiry into the CRM's support tickets. The CRM is what tells the
+ * team about it (Inbox notification and email), so when this succeeds no email
+ * is sent from here — see the fallback in POST below. See
+ * src/pages/api/support/tickets.ts in HAS-CRM for what receives this.
  *
- * CRM_SUPPORT_API_URL / CRM_SUPPORT_API_SECRET are both optional on purpose:
- * unset means "the CRM isn't wired up yet," which must be a silent no-op
- * rather than a broken support form. Any failure here — unreachable CRM,
- * wrong secret, a 500 on their end — is logged and swallowed, never thrown,
- * for the same reason.
+ * Returns whether the CRM took the ticket. CRM_SUPPORT_API_URL /
+ * CRM_SUPPORT_API_SECRET unset means "the CRM isn't wired up", which counts as
+ * not taken. Any failure — unreachable CRM, wrong secret, a 500 on their end —
+ * is logged and swallowed, never thrown: the visitor must never see it.
  */
 async function logToCrm(input: {
 	name: string;
@@ -33,10 +33,10 @@ async function logToCrm(input: {
 	userTypeLabel: string;
 	venueName: string;
 	message: string;
-}): Promise<void> {
+}): Promise<boolean> {
 	const url = import.meta.env.CRM_SUPPORT_API_URL;
 	const secret = import.meta.env.CRM_SUPPORT_API_SECRET;
-	if (!url || !secret) return;
+	if (!url || !secret) return false;
 
 	try {
 		const res = await fetch(url, {
@@ -59,9 +59,12 @@ async function logToCrm(input: {
 		});
 		if (!res.ok) {
 			console.error('[support] CRM logging failed', res.status, await res.text().catch(() => ''));
+			return false;
 		}
+		return true;
 	} catch (err) {
 		console.error('[support] CRM logging failed', err);
+		return false;
 	}
 }
 
@@ -89,21 +92,22 @@ export const POST: APIRoute = async ({ request }) => {
 	const userTypeLabel = userType === 'venue' ? 'Venue Manager' : 'Booker';
 	const venueNameTrimmed = (venueName ?? '').trim();
 
-	// Logged into the CRM before the Brevo email below, and not gated on
-	// Brevo being configured — if BREVO_API_KEY is ever missing or wrong,
-	// this is what stops that also costing the CRM copy. Awaited (not
-	// fire-and-forget) because a serverless function can be frozen the
-	// moment it returns a response, which would silently kill an un-awaited
-	// request before it left the machine — but its own error handling means
-	// nothing it does can affect what the visitor sees below.
-	await logToCrm({
+	// The CRM creates the ticket and notifies the team, so nothing is emailed from
+	// here when it succeeds. Awaited (not fire-and-forget) because a serverless
+	// function can be frozen the moment it returns a response, which would
+	// silently kill an un-awaited request before it left the machine.
+	const logged = await logToCrm({
 		name: name.trim(),
 		email: email.trim(),
 		userTypeLabel,
 		venueName: venueNameTrimmed,
 		message: message.trim(),
 	});
+	if (logged) return new Response(JSON.stringify({ ok: true }), { status: 200 });
 
+	// The CRM did not take it (down, misconfigured, wrong secret). Without this
+	// the enquiry would vanish while the visitor is told it was received, so the
+	// old email to the support inbox is the safety net.
 	const apiKey = import.meta.env.BREVO_API_KEY;
 	if (!apiKey) {
 		return new Response(JSON.stringify({ ok: false, error: 'Configuration error.' }), { status: 500 });
