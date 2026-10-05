@@ -473,16 +473,22 @@
 		});
 
 		// CAPTCHA
-		const a = Math.floor(Math.random() * 9) + 1;
-		const b = Math.floor(Math.random() * 9) + 1;
+		let a = 0;
+		let b = 0;
 		const questionEl = document.getElementById('sup-captcha-q');
-		if (questionEl) questionEl.textContent = `What is ${a} + ${b}?`;
+		function newCaptcha() {
+			a = Math.floor(Math.random() * 9) + 1;
+			b = Math.floor(Math.random() * 9) + 1;
+			if (questionEl) questionEl.textContent = `What is ${a} + ${b}?`;
+		}
+		newCaptcha();
 
 		// The venue question adapts to which side of the platform they said
 		// they're on, so it asks the right thing rather than a generic one —
 		// "which venue do you manage" reads very differently from "which venue
 		// have you booked".
 		const venueLabelEl = document.getElementById('sup-venue-label');
+		const titleDefault = document.getElementById('sup-modal-title')?.textContent ?? '';
 		const VENUE_LABELS: Record<string, string> = {
 			venue: 'Which venue do you manage?',
 			booker: 'Which venue have you booked?',
@@ -509,6 +515,25 @@
 		function hideError() {
 			errorBox.hidden = true;
 			errorMsg.textContent = '';
+		}
+
+		/** Back to a fresh, empty form — as if the page had just loaded. */
+		function resetForm() {
+			form.reset();
+			form.querySelectorAll('input, textarea, select').forEach((el: Element) => {
+				(el as HTMLInputElement | HTMLTextAreaElement).disabled = false;
+			});
+			hideError();
+			successEl.hidden = true;
+			submitBtn.disabled = false;
+			submitBtn.textContent = 'Submit Ticket';
+			// Read again when the form is next opened, so the too-fast-to-be-human check
+			// measures from then and not from the page load.
+			(document.getElementById('sup-load-time') as HTMLInputElement).value = '0';
+			newCaptcha();
+			if (venueLabelEl) venueLabelEl.textContent = 'Which venue is this about?';
+			const titleEl = document.getElementById('sup-modal-title');
+			if (titleEl) titleEl.textContent = titleDefault;
 		}
 
 		form?.addEventListener('submit', async (e) => {
@@ -570,6 +595,12 @@
 					form.querySelectorAll('input, textarea, select').forEach((el: Element) => {
 						(el as HTMLInputElement | HTMLTextAreaElement).disabled = true;
 					});
+					// Leave the confirmation up long enough to read, then close the form and
+					// clear it, so what was typed does not sit in the page until a refresh.
+					window.setTimeout(() => {
+						closeModal();
+						resetForm();
+					}, 2500);
 				} else {
 					showError(json.error ?? 'Something went wrong. Please try again.');
 				}
