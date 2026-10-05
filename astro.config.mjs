@@ -20,6 +20,14 @@ export default defineConfig({
             },
             head: [
                 {
+                    // First-party, cookieless analytics (CRM: /analytics). Stores nothing in the browser.
+                    tag: 'script',
+                    attrs: {
+                        src: 'https://api.haveaspot.com/v1/hs.js',
+                        defer: true,
+                    },
+                },
+                {
                     tag: 'meta',
                     attrs: {
                         name: 'format-detection',
