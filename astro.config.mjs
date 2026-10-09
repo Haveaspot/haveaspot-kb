@@ -80,6 +80,7 @@ export default defineConfig({
                     },
                 },
             ],
+            routeMiddleware: './src/routeData.ts',
             customCss: ['./src/styles/custom.css'],
             components: {
                 Header: './src/components/Header.astro',
